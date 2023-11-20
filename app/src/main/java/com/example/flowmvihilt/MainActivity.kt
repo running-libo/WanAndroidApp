@@ -3,6 +3,7 @@ package com.example.flowmvihilt
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import androidx.viewpager2.adapter.FragmentStateAdapter
+import com.example.flowmvihilt.base.BaseBindingActivity
 import com.example.flowmvihilt.databinding.ActivityMainBinding
 import com.example.flowmvihilt.ui.main.MainFragment
 import dagger.hilt.android.AndroidEntryPoint

@@ -1,4 +1,4 @@
-package com.example.flowmvihilt
+package com.example.flowmvihilt.base
 
 import android.os.Bundle
 import android.view.LayoutInflater
