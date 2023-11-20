@@ -12,7 +12,7 @@ import javax.inject.Singleton
  */
 @Singleton
 class PhotoRepositoryImpl @Inject constructor(
-    private val apiService: ApiService,
+    private val apiService: MainApiService,  //这个apiService不用创建，直接放到构造方法就能自动创建
     private val dispatchersProvider: CoroutinesDispatchersProvider
 ) : PhotoRepository {
 

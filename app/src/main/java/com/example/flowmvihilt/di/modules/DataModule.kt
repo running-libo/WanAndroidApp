@@ -1,7 +1,6 @@
 package com.example.flowmvihilt.di.modules
 
 import com.example.flowmvihilt.BuildConfig
-import com.example.flowmvihilt.data.remote.ApiService
 import com.example.flowmvihilt.data.remote.BASE_URL
 import com.squareup.moshi.Moshi
 import com.squareup.moshi.kotlin.reflect.KotlinJsonAdapterFactory
@@ -20,12 +19,6 @@ import javax.inject.Singleton
 @Module
 @InstallIn(SingletonComponent::class)
 class DataModule {
-
-    @Singleton
-    @Provides
-    fun provideApiService(retrofit: Retrofit): ApiService {
-        return ApiService(retrofit)
-    }
 
     @Singleton
     @Provides

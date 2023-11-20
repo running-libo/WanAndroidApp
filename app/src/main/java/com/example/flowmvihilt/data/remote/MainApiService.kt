@@ -9,7 +9,7 @@ import retrofit2.http.Query
 
 const val BASE_URL = "http://jsonplaceholder.typicode.com/"
 
-interface ApiService {
+interface MainApiService {
   @GET("photos")
   suspend fun getPhotos(
     @Query("_start") start: Int,
@@ -23,6 +23,6 @@ interface ApiService {
   ): List<PostResponse>
 
   companion object {
-    operator fun invoke(retrofit: Retrofit) = retrofit.create<ApiService>()
+    operator fun invoke(retrofit: Retrofit) = retrofit.create<MainApiService>()
   }
 }
