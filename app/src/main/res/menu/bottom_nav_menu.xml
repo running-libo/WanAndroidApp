@@ -3,25 +3,20 @@
     <item
         android:id="@+id/navigation_home"
         android:icon="@drawable/ic_launcher_foreground"
-        android:title="@string/home" />
+        android:title="@string/home_page" />
 
     <item
-        android:id="@+id/navigation_blog"
+        android:id="@+id/navigation_qa"
         android:icon="@drawable/ic_launcher_foreground"
-        android:title="@string/blog" />
+        android:title="@string/q_a" />
 
     <item
-        android:id="@+id/navigation_search"
+        android:id="@+id/navigation_system"
         android:icon="@drawable/ic_launcher_foreground"
-        android:title="@string/search" />
+        android:title="@string/system" />
 
     <item
-        android:id="@+id/navigation_project_type"
+        android:id="@+id/navigation_mine"
         android:icon="@drawable/ic_launcher_foreground"
-        android:title="@string/project_type" />
-
-    <item
-        android:id="@+id/navigation_me"
-        android:icon="@drawable/ic_launcher_foreground"
-        android:title="@string/me" />
+        android:title="@string/mine" />
 </menu>

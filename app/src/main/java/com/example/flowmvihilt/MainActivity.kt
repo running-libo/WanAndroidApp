@@ -19,10 +19,9 @@ class MainActivity : BaseBindingActivity<ActivityMainBinding>(
         binding.navView.setOnItemSelectedListener {
             when (it.itemId) {
                 R.id.navigation_home -> switchFragment(0)
-                R.id.navigation_blog -> switchFragment(1)
-                R.id.navigation_search -> switchFragment(2)
-                R.id.navigation_project_type -> switchFragment(3)
-                R.id.navigation_me -> switchFragment(4)
+                R.id.navigation_qa -> switchFragment(1)
+                R.id.navigation_system -> switchFragment(2)
+                R.id.navigation_mine -> switchFragment(3)
             }
             true
         }
@@ -43,7 +42,6 @@ class MainActivity : BaseBindingActivity<ActivityMainBinding>(
                 1 -> MainFragment()
                 2 -> MainFragment()
                 3 -> MainFragment()
-                4 -> MainFragment()
                 else -> MainFragment()
             }
 

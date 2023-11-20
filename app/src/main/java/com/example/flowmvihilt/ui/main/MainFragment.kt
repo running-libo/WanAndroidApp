@@ -6,24 +6,25 @@ import androidx.fragment.app.viewModels
 import androidx.lifecycle.lifecycleScope
 import com.example.flowmvihilt.base.BaseBindingFragment
 import com.example.flowmvihilt.base.DetailUiState
+import com.example.flowmvihilt.base.LoadUiIntent
 import com.example.flowmvihilt.databinding.FragmentMainBinding
-import com.example.flowmvihilt.main.ArticleAdapter
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.flow.map
 import kotlinx.coroutines.launch
+import javax.inject.Inject
 
 @AndroidEntryPoint
 class MainFragment: BaseBindingFragment<FragmentMainBinding>(
     {FragmentMainBinding.inflate(it)}
 ) {
 
+    @Inject
+    lateinit var articleAdapter: ArticleAdapter
     private val mainVm by viewModels<MainVM>()
-    private lateinit var articleAdapter: ArticleAdapter
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        articleAdapter = ArticleAdapter()
         binding.recyclerView.adapter = articleAdapter
 
         mainVm.sendUiIntent(MainIntent.getDetail(0))
@@ -45,6 +46,22 @@ class MainFragment: BaseBindingFragment<FragmentMainBinding>(
                         }
                     }
                 }
+        }
+
+        lifecycleScope.launch {
+            mainVm.loadUiIntentFlow.collect { state ->
+                when(state) {
+                    is LoadUiIntent.Loading -> {
+
+                    }
+                    is LoadUiIntent.Error -> {
+
+                    }
+                    is LoadUiIntent.ShowMainView -> {
+
+                    }
+                }
+            }
         }
     }
 }
