@@ -17,13 +17,15 @@ class MainVM @Inject constructor(val photoRepository: PhotoRepository) : BaseVie
         when(intent) {
             is MainIntent.getDetail -> {
                 viewModelScope.launch {
-                    val photo = photoRepository.getPhotos(0, 20)
-                    //数据请求成功，发送加载页面state
-                    sendUiState {
-                        copy(
-                            detailUiState = DetailUiState.SUCCESS(photo)
-                        )
+                    val data = photoRepository.getPhotos(0, 20)
+                    data.data?.let {
+                        sendUiState {
+                            copy(
+                                detailUiState = DetailUiState.SUCCESS(it)
+                            )
+                        }
                     }
+                    //数据请求成功，发送加载页面state
                 }
             }
         }

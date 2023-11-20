@@ -1,9 +1,7 @@
 package com.example.flowmvihilt.di.modules
 
 import com.example.flowmvihilt.BuildConfig
-import com.example.flowmvihilt.data.remote.BASE_URL
-import com.squareup.moshi.Moshi
-import com.squareup.moshi.kotlin.reflect.KotlinJsonAdapterFactory
+import com.example.flowmvihilt.network.Api
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -11,7 +9,7 @@ import dagger.hilt.components.SingletonComponent
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Retrofit
-import retrofit2.converter.moshi.MoshiConverterFactory
+import retrofit2.converter.gson.GsonConverterFactory
 import java.util.concurrent.TimeUnit
 import javax.inject.Singleton
 
@@ -24,16 +22,9 @@ class DataModule {
     @Provides
     fun provideRetrofit(client: OkHttpClient): Retrofit {
         return Retrofit.Builder()
-            .baseUrl(BASE_URL)
+            .baseUrl(Api.SERVER_ADDRESS_RELEASE)
             .client(client)
-            .addConverterFactory(
-                MoshiConverterFactory.create(
-                    Moshi
-                        .Builder()
-                        .add(KotlinJsonAdapterFactory())
-                        .build()
-                )
-            )
+            .addConverterFactory(GsonConverterFactory.create())
             .build()
     }
 
