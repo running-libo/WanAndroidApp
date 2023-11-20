@@ -9,6 +9,12 @@ class BaseData<T> {
     override fun toString(): String {
         return "BaseData(code=$errorCode, msg=$errorMsg, data=$data, state=$state)"
     }
+
+    companion object {
+        const val CODE_SUCCESS = 0
+    }
+
+    fun isSuccess(): Boolean = errorCode == CODE_SUCCESS
 }
 
 enum class ReqState {
