@@ -7,6 +7,7 @@ import com.example.flowmvihilt.base.BaseBindingActivity
 import com.example.flowmvihilt.databinding.ActivityMainBinding
 import com.example.flowmvihilt.ui.main.MainFragment
 import dagger.hilt.android.AndroidEntryPoint
+import java.util.ServiceLoader
 
 @AndroidEntryPoint
 class MainActivity : BaseBindingActivity<ActivityMainBinding>(

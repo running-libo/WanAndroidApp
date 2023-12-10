@@ -8,4 +8,16 @@
         android:id="@+id/mainFragment"
         android:name="com.example.flowmvihilt.ui.main.MainFragment"
         android:label="MainFragment" />
+    <fragment
+        android:id="@+id/mainFragment2"
+        android:name="com.example.flowmvihilt.ui.main.MainFragment"
+        android:label="MainFragment" />
+    <fragment
+        android:id="@+id/mainFragment3"
+        android:name="com.example.flowmvihilt.ui.main.MainFragment"
+        android:label="MainFragment" />
+    <fragment
+        android:id="@+id/mainFragment4"
+        android:name="com.example.flowmvihilt.ui.main.MainFragment"
+        android:label="MainFragment" />
 </navigation>
