@@ -6,7 +6,11 @@
 
     <fragment
         android:id="@+id/navigation_home"
-        android:name="com.example.flowmvihilt.ui.main.MainFragment"/>
+        android:name="com.example.flowmvihilt.ui.main.MainFragment">
+
+        <action android:id="@+id/action_to_artical"
+            app:destination="@id/articalFragment"/>
+    </fragment>
     <fragment
         android:id="@+id/navigation_qa"
         android:name="com.example.flowmvihilt.ui.main.MainFragment" />
@@ -17,4 +21,7 @@
     <fragment
         android:id="@+id/navigation_mine"
         android:name="com.example.flowmvihilt.mine.MeFragment"/>
+    <fragment
+        android:id="@+id/articalFragment"
+        android:name="com.example.flowmvihilt.mine.ArticalFragment"/>
 </navigation>
