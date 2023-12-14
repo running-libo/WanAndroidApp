@@ -1,5 +1,6 @@
 package com.example.flowmvihilt.di.modules
 
+import com.example.flowmvihilt.data.remote.ISystemService
 import com.example.flowmvihilt.data.remote.MainApiService
 import dagger.Module
 import dagger.Provides
@@ -14,5 +15,10 @@ object NetworkApiDI {
     @Provides
     fun mainApi(retrofit: Retrofit): MainApiService {
         return MainApiService(retrofit)
+    }
+
+    @Provides
+    fun sysApi(retrofit: Retrofit): ISystemService {
+        return ISystemService(retrofit)
     }
 }

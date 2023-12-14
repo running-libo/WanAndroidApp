@@ -13,11 +13,10 @@
     </fragment>
     <fragment
         android:id="@+id/navigation_qa"
-        android:name="com.example.flowmvihilt.ui.main.MainFragment" />
+        android:name="com.example.flowmvihilt.qa.QaFragment" />
     <fragment
         android:id="@+id/navigation_system"
-        android:name="com.example.flowmvihilt.ui.main.MainFragment"
-        android:label="MainFragment" />
+        android:name="com.example.flowmvihilt.system.SystemFragment"/>
     <fragment
         android:id="@+id/navigation_mine"
         android:name="com.example.flowmvihilt.mine.MeFragment"/>
