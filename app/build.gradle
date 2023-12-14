@@ -49,6 +49,7 @@ dependencies {
     implementation 'androidx.constraintlayout:constraintlayout:2.0.4'
     implementation 'androidx.lifecycle:lifecycle-livedata-ktx:2.2.0'
     implementation 'androidx.lifecycle:lifecycle-viewmodel-ktx:2.4.0'
+    implementation project(path: ':basemodule')
 
     // Hilt
     implementation "com.google.dagger:hilt-android:$dagger_hilt_version"
