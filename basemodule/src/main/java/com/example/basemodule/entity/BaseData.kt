@@ -1,4 +1,4 @@
-package com.example.flowmvihilt.domain.entity
+package com.example.basemodule.entity
 
 class BaseData<T> {
     var errorCode = -1

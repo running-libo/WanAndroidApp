@@ -1,7 +1,7 @@
 package com.example.flowmvihilt.di.modules
 
 import com.example.flowmvihilt.BuildConfig
-import com.example.flowmvihilt.network.Api
+import com.example.basemodule.network.Api
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn

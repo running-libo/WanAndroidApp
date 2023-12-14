@@ -1,4 +1,4 @@
-package com.example.flowmvihilt.base
+package com.example.basemodule.base
 
 import androidx.annotation.Keep
 

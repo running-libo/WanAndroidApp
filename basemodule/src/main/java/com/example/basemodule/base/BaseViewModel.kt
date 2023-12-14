@@ -1,8 +1,8 @@
-package com.example.flowmvihilt.base
+package com.example.basemodule.base
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.example.flowmvihilt.domain.entity.BaseData
+import com.example.basemodule.entity.BaseData
 import kotlinx.coroutines.channels.Channel
 import kotlinx.coroutines.flow.*
 import kotlinx.coroutines.launch

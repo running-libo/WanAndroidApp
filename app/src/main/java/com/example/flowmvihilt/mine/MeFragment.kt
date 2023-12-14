@@ -4,7 +4,7 @@ import android.os.Bundle
 import android.view.View
 import androidx.navigation.fragment.findNavController
 import com.example.flowmvihilt.R
-import com.example.flowmvihilt.base.BaseBindingFragment
+import com.example.basemodule.base.BaseBindingFragment
 import com.example.flowmvihilt.databinding.FragmentMeBinding
 import dagger.hilt.android.AndroidEntryPoint
 

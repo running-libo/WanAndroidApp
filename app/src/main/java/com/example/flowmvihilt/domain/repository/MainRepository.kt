@@ -1,7 +1,7 @@
 package com.example.flowmvihilt.domain.repository
 
 import com.example.flowmvihilt.domain.entity.ArticleListData
-import com.example.flowmvihilt.domain.entity.BaseData
+import com.example.basemodule.entity.BaseData
 
 interface MainRepository {
 

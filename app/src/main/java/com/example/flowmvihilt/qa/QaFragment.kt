@@ -2,7 +2,7 @@ package com.example.flowmvihilt.qa
 
 import android.os.Bundle
 import android.view.View
-import com.example.flowmvihilt.base.BaseBindingFragment
+import com.example.basemodule.base.BaseBindingFragment
 import com.example.flowmvihilt.databinding.FragmentQaBinding
 
 class QaFragment: BaseBindingFragment<FragmentQaBinding>(

@@ -1,9 +1,7 @@
 package com.example.flowmvihilt.ui.main
 
-import com.example.flowmvihilt.base.BaseViewModel
-import com.example.flowmvihilt.base.DetailUiState
-import com.example.flowmvihilt.base.IUiIntent
-import com.example.flowmvihilt.base.MainUiState
+import com.example.basemodule.base.BaseViewModel
+import com.example.basemodule.base.IUiIntent
 import com.example.flowmvihilt.domain.repository.MainRepository
 import dagger.hilt.android.lifecycle.HiltViewModel
 import javax.inject.Inject

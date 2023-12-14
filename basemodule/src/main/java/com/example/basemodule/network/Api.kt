@@ -1,4 +1,4 @@
-package com.example.flowmvihilt.network
+package com.example.basemodule.network
 
 interface Api {
 

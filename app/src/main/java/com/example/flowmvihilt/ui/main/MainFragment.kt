@@ -4,9 +4,8 @@ import android.os.Bundle
 import android.view.View
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.lifecycleScope
-import com.example.flowmvihilt.base.BaseBindingFragment
-import com.example.flowmvihilt.base.DetailUiState
-import com.example.flowmvihilt.base.LoadUiIntent
+import com.example.basemodule.base.BaseBindingFragment
+import com.example.basemodule.base.LoadUiIntent
 import com.example.flowmvihilt.databinding.FragmentMainBinding
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.flow.map
@@ -20,6 +19,7 @@ class MainFragment: BaseBindingFragment<FragmentMainBinding>(
 
     @Inject
     lateinit var articleAdapter: ArticleAdapter
+
     private val mainVm by viewModels<MainVM>()
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {

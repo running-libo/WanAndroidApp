@@ -1,5 +1,6 @@
-package com.example.flowmvihilt.base
+package com.example.flowmvihilt.ui.main
 
+import com.example.basemodule.base.IUiState
 import com.example.flowmvihilt.domain.entity.ArticleListData
 
 data class MainUiState(val detailUiState: DetailUiState): IUiState

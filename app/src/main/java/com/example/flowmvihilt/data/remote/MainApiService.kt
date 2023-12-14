@@ -1,8 +1,8 @@
 package com.example.flowmvihilt.data.remote
 
 import com.example.flowmvihilt.domain.entity.ArticleListData
-import com.example.flowmvihilt.domain.entity.BaseData
-import com.example.flowmvihilt.network.Api
+import com.example.basemodule.entity.BaseData
+import com.example.basemodule.network.Api
 import retrofit2.Retrofit
 import retrofit2.create
 import retrofit2.http.GET
