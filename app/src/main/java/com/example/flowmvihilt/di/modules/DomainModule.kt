@@ -4,6 +4,8 @@ import com.example.flowmvihilt.domain.repository.MainRepositoryImpl
 import com.example.flowmvihilt.domain.dispatchers.CoroutinesDispatchersProvider
 import com.example.flowmvihilt.domain.dispatchers.CoroutinesDispatchersProviderImpl
 import com.example.flowmvihilt.domain.repository.MainRepository
+import com.example.flowmvihilt.domain.repository.SysRepository
+import com.example.flowmvihilt.domain.repository.SysRepositoryImpl
 import dagger.Binds
 import dagger.Module
 import dagger.hilt.InstallIn
@@ -18,5 +20,8 @@ interface DomainModule {
 
     @Binds
     fun providePhotoRepository(mainRepositoryImpl: MainRepositoryImpl): MainRepository
+
+    @Binds
+    fun provideSysRepository(sysRepositoryImpl: SysRepositoryImpl): SysRepository
 
 }

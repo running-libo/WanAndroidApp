@@ -57,7 +57,7 @@ class MainFragment: BaseBindingFragment<FragmentMainBinding>(
                     is LoadUiIntent.Error -> {
 
                     }
-                    is LoadUiIntent.ShowMainView -> {
+                    is LoadUiIntent.ShowPageView -> {
 
                     }
                 }

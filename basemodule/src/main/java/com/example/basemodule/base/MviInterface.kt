@@ -10,6 +10,6 @@ interface IUiIntent //event
 
 sealed class LoadUiIntent {
     data class Loading(var isShow: Boolean) : LoadUiIntent()
-    object ShowMainView : LoadUiIntent()
+    object ShowPageView : LoadUiIntent()
     data class Error(val msg: String) : LoadUiIntent()
 }
