@@ -4,7 +4,7 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.example.flowmvihilt.databinding.ItemArticleBinding
-import com.example.flowmvihilt.domain.entity.DataX
+import com.example.basemodule.entity.DataX
 import javax.inject.Inject
 
 class ArticleAdapter @Inject constructor(): RecyclerView.Adapter<ArticleAdapter.ArticleViewHolder>() {

@@ -2,7 +2,7 @@ package com.example.flowmvihilt.domain.repository
 
 import com.example.flowmvihilt.data.remote.MainApiService
 import com.example.flowmvihilt.domain.dispatchers.CoroutinesDispatchersProvider
-import com.example.flowmvihilt.domain.entity.ArticleListData
+import com.example.basemodule.entity.ArticleListData
 import com.example.basemodule.entity.BaseData
 import kotlinx.coroutines.withContext
 import javax.inject.Inject

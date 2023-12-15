@@ -1,4 +1,4 @@
-package com.example.flowmvihilt.system
+package com.example.basemodule.entity
 
 /**
  * create by libo
