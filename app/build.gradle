@@ -66,5 +66,8 @@ dependencies {
 
     //okhttp
     implementation 'com.squareup.okhttp3:logging-interceptor:5.0.0-alpha.2'
+
+    //module依赖
     implementation project(path: ':basemodule')
+    implementation project(path: ':resmodule')
 }
