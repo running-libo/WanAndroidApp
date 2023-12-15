@@ -2,21 +2,21 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
     <item
         android:id="@+id/navigation_home"
-        android:icon="@drawable/ic_launcher_foreground"
+        android:icon="@mipmap/ic_home_pressed"
         android:title="@string/home_page" />
 
     <item
         android:id="@+id/navigation_qa"
-        android:icon="@drawable/ic_launcher_foreground"
+        android:icon="@mipmap/ic_question_pressed"
         android:title="@string/q_a" />
 
     <item
         android:id="@+id/navigation_system"
-        android:icon="@drawable/ic_launcher_foreground"
+        android:icon="@mipmap/ic_system_pressed"
         android:title="@string/system" />
 
     <item
         android:id="@+id/navigation_mine"
-        android:icon="@drawable/ic_launcher_foreground"
+        android:icon="@mipmap/ic_me_pressed"
         android:title="@string/mine" />
 </menu>

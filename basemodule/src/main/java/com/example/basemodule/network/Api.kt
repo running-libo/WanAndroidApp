@@ -1,5 +1,11 @@
 package com.example.basemodule.network
 
+
+/**
+ * create by libo
+ * create on 2023/6/28
+ * description 网络请求地址
+ */
 interface Api {
 
     companion object {

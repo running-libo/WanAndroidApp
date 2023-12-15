@@ -17,7 +17,10 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
 
         navView = findViewById(R.id.nav_view)
+        initNavigationView()
+    }
 
+    private fun initNavigationView() {
         //将Navigation与BNV关联
         val navHostFragment = supportFragmentManager.findFragmentById(R.id.nav_host_fragment) as NavHostFragment
         navView.setupWithNavController(navHostFragment.findNavController())
