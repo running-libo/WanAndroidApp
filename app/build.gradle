@@ -70,4 +70,5 @@ dependencies {
     //module依赖
     implementation project(path: ':basemodule')
     implementation project(path: ':resmodule')
+
 }

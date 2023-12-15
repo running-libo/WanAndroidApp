@@ -9,7 +9,7 @@
         android:name="com.example.flowmvihilt.ui.main.MainFragment">
 
         <action android:id="@+id/action_to_artical"
-            app:destination="@id/articalFragment"/>
+            app:destination="@id/navigation_webview"/>
     </fragment>
     <fragment
         android:id="@+id/navigation_qa"
@@ -21,6 +21,6 @@
         android:id="@+id/navigation_mine"
         android:name="com.example.flowmvihilt.mine.MeFragment"/>
     <fragment
-        android:id="@+id/articalFragment"
-        android:name="com.example.flowmvihilt.mine.ArticalFragment"/>
+        android:id="@+id/navigation_webview"
+        android:name="com.example.flowmvihilt.webview.WevViewFragment"/>
 </navigation>

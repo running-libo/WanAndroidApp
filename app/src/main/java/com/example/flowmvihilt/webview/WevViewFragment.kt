@@ -1,18 +1,23 @@
-package com.example.flowmvihilt.mine
+package com.example.flowmvihilt.webview
 
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.fragment.app.Fragment
+import com.example.basemodule.base.BaseBindingFragment
+import com.example.flowmvihilt.databinding.FragmentWebviewBinding
 
-class ArticalFragment : Fragment() {
+class WevViewFragment : BaseBindingFragment<FragmentWebviewBinding>({
+    FragmentWebviewBinding.inflate(it)
+}) {
 
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
+
         return super.onCreateView(inflater, container, savedInstanceState)
     }
+
 }

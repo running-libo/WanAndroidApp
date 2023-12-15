@@ -8,5 +8,6 @@ class MyApp: BaseApplication() {
 
     override fun onCreate() {
         super.onCreate()
+
     }
 }
