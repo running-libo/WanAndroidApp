@@ -10,8 +10,7 @@ import com.example.basemodule.entity.DataX
 import dagger.hilt.android.qualifiers.ActivityContext
 import javax.inject.Inject
 
-class ArticleAdapter @Inject constructor(@ActivityContext val context: Context): BaseAdapter<ArticleAdapter.ArticleViewHolder>() {
-    private var mList: ArrayList<DataX> = ArrayList()
+class ArticleAdapter @Inject constructor(@ActivityContext val context: Context): BaseAdapter<ArticleAdapter.ArticleViewHolder, DataX>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ArticleViewHolder {
         return ArticleViewHolder(
@@ -28,21 +27,6 @@ class ArticleAdapter @Inject constructor(@ActivityContext val context: Context):
                 it.onItemClick(mList[position])
             }
         }
-    }
-
-    fun setList(list: List<DataX>) {
-        mList.clear()
-        mList.addAll(list)
-        notifyDataSetChanged()
-    }
-
-    fun appendList(list: List<DataX>) {
-        mList.addAll(list)
-        notifyDataSetChanged()
-    }
-
-    override fun getItemCount(): Int {
-        return mList.size
     }
 
     class ArticleViewHolder(val binding: ItemArticleBinding) : RecyclerView.ViewHolder(binding.root) {

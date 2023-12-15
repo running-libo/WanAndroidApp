@@ -9,8 +9,7 @@ import com.example.flowmvihilt.databinding.ItemTagviewBinding
 import com.example.basemodule.entity.SystemData
 import javax.inject.Inject
 
-class SystemAdapter @Inject constructor(): BaseAdapter<SystemAdapter.SysViewHolder>() {
-    private var mList: List<SystemData> = ArrayList()
+class SystemAdapter @Inject constructor(): BaseAdapter<SystemAdapter.SysViewHolder, SystemData>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): SysViewHolder {
         return SysViewHolder(
@@ -25,15 +24,6 @@ class SystemAdapter @Inject constructor(): BaseAdapter<SystemAdapter.SysViewHold
         holder.binding.root.setOnClickListener {
             itemClickListener?.onItemClick(mList[position])
         }
-    }
-
-    fun setList(list: List<SystemData>) {
-        mList = list
-        notifyDataSetChanged()
-    }
-
-    override fun getItemCount(): Int {
-        return mList.size
     }
 
     class SysViewHolder(val binding: ItemSystemBinding) : RecyclerView.ViewHolder(binding.root) {
