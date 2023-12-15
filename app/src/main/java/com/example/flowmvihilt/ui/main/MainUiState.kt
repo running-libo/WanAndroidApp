@@ -14,7 +14,7 @@ data class MainUiState(val detailUiState: DetailUiState, val bannerUiState: Bann
  */
 sealed class DetailUiState {
     object INIT: DetailUiState()
-    data class SUCCESS(val data: ArticleListData): DetailUiState()
+    data class SUCCESS(val page: Int, val data: ArticleListData): DetailUiState()
 }
 
 /**

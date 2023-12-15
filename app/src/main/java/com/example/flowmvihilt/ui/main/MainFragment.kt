@@ -63,8 +63,13 @@ class MainFragment: BaseBindingFragment<FragmentMainBinding>(
 
                         }
                         is DetailUiState.SUCCESS -> {
-                            binding.recyclerView.visibility = View.VISIBLE
-                            articleAdapter.setList(detailUiState.data.datas)
+                            if (detailUiState.page == 0) {
+                                articleAdapter.setList(detailUiState.data.datas)
+                                binding.smartRefreshLayout.finishRefresh()
+                            } else {
+                                articleAdapter.appendList(detailUiState.data.datas)
+                                binding.smartRefreshLayout.finishLoadMore()
+                            }
                         }
                     }
                 }
@@ -88,7 +93,10 @@ class MainFragment: BaseBindingFragment<FragmentMainBinding>(
             mainVm.loadUiIntentFlow.collect { state ->
                 when(state) {
                     is LoadUiIntent.Loading -> {
-
+                        if (!state.isShow) {
+                            binding.smartRefreshLayout.finishRefresh()
+                            binding.smartRefreshLayout.finishLoadMore()
+                        }
                     }
                     is LoadUiIntent.Error -> {
 
@@ -116,11 +124,15 @@ class MainFragment: BaseBindingFragment<FragmentMainBinding>(
     private fun setRefreshLoadMore() {
         binding.smartRefreshLayout.setOnRefreshLoadMoreListener(object: OnRefreshLoadMoreListener {
             override fun onRefresh(refreshLayout: RefreshLayout) {
-
+                mainVm.refresh { page ->
+                    mainVm.sendUiIntent(MainIntent.getDetail(page))
+                }
             }
 
             override fun onLoadMore(refreshLayout: RefreshLayout) {
-
+                mainVm.loadMore { page ->
+                    mainVm.sendUiIntent(MainIntent.getDetail(page))
+                }
             }
         })
     }

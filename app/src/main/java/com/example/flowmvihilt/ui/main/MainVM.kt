@@ -15,11 +15,11 @@ class MainVM @Inject constructor(private val mainRepository: MainRepository) : B
                 is MainIntent.getDetail -> {
                     requestDataWithFlow(
                         showLoading = true,
-                        request = { mainRepository.getArticals(0) },
+                        request = { mainRepository.getArticals(curPage.value!!) },
                         successCallBack = { data ->
                             sendUiState {
                                 copy(
-                                    detailUiState = DetailUiState.SUCCESS(data)
+                                    detailUiState = DetailUiState.SUCCESS(curPage.value!!, data)
                                 )
                             }
                         })

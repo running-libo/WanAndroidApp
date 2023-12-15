@@ -2,11 +2,12 @@ package com.example.basemodule.basemvi
 
 import androidx.lifecycle.MutableLiveData
 
+/**
+ * 处理分页加载ViewModel
+ */
 abstract class BasePageViewModel<UiState: IUiState, UiIntent: IUiIntent>: BaseViewModel<UiState, UiIntent>() {
 
-    var curPage = MutableLiveData<Int>()
-
-//    open fun requestData(page: Int) {}
+    var curPage = MutableLiveData(0)
 
     private fun getStartPageNum(): Int = 0
 

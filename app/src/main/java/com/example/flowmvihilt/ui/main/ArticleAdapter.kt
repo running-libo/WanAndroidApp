@@ -11,7 +11,7 @@ import dagger.hilt.android.qualifiers.ActivityContext
 import javax.inject.Inject
 
 class ArticleAdapter @Inject constructor(@ActivityContext val context: Context): BaseAdapter<ArticleAdapter.ArticleViewHolder>() {
-    private var mList: List<DataX> = ArrayList()
+    private var mList: ArrayList<DataX> = ArrayList()
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ArticleViewHolder {
         return ArticleViewHolder(
@@ -31,7 +31,13 @@ class ArticleAdapter @Inject constructor(@ActivityContext val context: Context):
     }
 
     fun setList(list: List<DataX>) {
-        mList = list
+        mList.clear()
+        mList.addAll(list)
+        notifyDataSetChanged()
+    }
+
+    fun appendList(list: List<DataX>) {
+        mList.addAll(list)
         notifyDataSetChanged()
     }
 
