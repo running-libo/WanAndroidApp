@@ -59,8 +59,8 @@ dependencies {
     //Banner
     api "androidx.viewpager2:viewpager2:1.0.0"
 
-    //Glide
-    api 'com.github.bumptech.glide:glide:4.8.0'
+    //Coil
+    api 'io.coil-kt:coil:1.4.0'
 
     api project(path: ':resmodule')
 }

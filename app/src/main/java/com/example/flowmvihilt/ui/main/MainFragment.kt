@@ -27,6 +27,8 @@ class MainFragment: BaseBindingFragment<FragmentMainBinding>(
 
     @Inject
     lateinit var articleAdapter: ArticleAdapter
+    @Inject
+    lateinit var bannerAdapter: BannerAdapter
 
     private val mainVm by viewModels<MainVM>()
 
@@ -117,7 +119,8 @@ class MainFragment: BaseBindingFragment<FragmentMainBinding>(
             var padding = 80
             recyclerView.setPadding(padding, 0, padding, 0)  //设置左右页面露出来的宽度及item与item之间的宽度
             recyclerView.clipToPadding = false
-            adapter = BannerAdapter(context, datas)
+            bannerAdapter.setList(datas)
+            adapter = bannerAdapter
         }
     }
 
