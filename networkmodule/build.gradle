@@ -1,5 +1,8 @@
 plugins {
     id 'com.android.library'
+    id 'org.jetbrains.kotlin.android'
+    id 'kotlin-kapt'
+    id 'dagger.hilt.android.plugin'
 }
 
 android {
@@ -41,6 +44,9 @@ dependencies {
 
     //okhttp
     api 'com.squareup.okhttp3:logging-interceptor:5.0.0-alpha.2'
+
+    implementation "com.google.dagger:hilt-android:$dagger_hilt_version"
+    kapt "com.google.dagger:hilt-android-compiler:$dagger_hilt_version"
 
     api project(path: ':basemodule')
 }

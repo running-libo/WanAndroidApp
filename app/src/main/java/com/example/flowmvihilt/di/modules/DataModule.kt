@@ -2,6 +2,8 @@ package com.example.flowmvihilt.di.modules
 
 import com.example.flowmvihilt.BuildConfig
 import com.example.basemodule.network.Api
+import com.example.network.LogInterceptor
+import com.example.network.NetCacheInterceptor
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -35,6 +37,8 @@ class DataModule {
             .connectTimeout(15, TimeUnit.SECONDS)
             .readTimeout(15, TimeUnit.SECONDS)
             .writeTimeout(15, TimeUnit.SECONDS)
+            .addInterceptor(NetCacheInterceptor())
+            .addInterceptor(LogInterceptor())
             .apply {
                 if (BuildConfig.DEBUG) {
                     HttpLoggingInterceptor()
