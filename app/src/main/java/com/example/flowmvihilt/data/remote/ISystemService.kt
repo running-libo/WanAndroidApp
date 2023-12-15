@@ -2,7 +2,7 @@ package com.example.flowmvihilt.data.remote
 
 import com.example.basemodule.entity.BaseData
 import com.example.basemodule.network.Api
-import com.libo.modulesystem.SystemData
+import com.example.flowmvihilt.system.SystemData
 import retrofit2.Retrofit
 import retrofit2.create
 import retrofit2.http.GET

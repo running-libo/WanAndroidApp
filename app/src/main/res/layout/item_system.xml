@@ -3,12 +3,6 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools">
 
-    <data>
-        <variable
-            name="item"
-            type="com.libo.modulesystem.SystemData" />
-    </data>
-
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -22,7 +16,6 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             tools:text="Android studio"
-            android:text="@{item.name}"
             android:textSize="14sp"
             android:textColor="@color/black"
             app:layout_constraintTop_toTopOf="parent"

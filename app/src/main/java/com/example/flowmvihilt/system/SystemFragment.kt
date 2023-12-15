@@ -2,7 +2,6 @@ package com.example.flowmvihilt.system
 
 import android.os.Bundle
 import android.view.View
-import android.widget.Toast
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.lifecycleScope
 import com.example.basemodule.base.BaseBindingFragment
@@ -11,17 +10,22 @@ import com.example.flowmvihilt.databinding.FragmentSystemBinding
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.flow.map
 import kotlinx.coroutines.launch
+import javax.inject.Inject
 
 @AndroidEntryPoint
 class SystemFragment: BaseBindingFragment<FragmentSystemBinding>(
     { FragmentSystemBinding.inflate(it)}
 ){
+    @Inject
+    lateinit var sysAdapter: SystemAdapter
     private val sysVm by viewModels<SysViewModel>()
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
         sysVm.sendUiIntent(SysIntent.getDatas(0))
+
+        binding.rvSystem.adapter = sysAdapter
 
         observe()
     }
@@ -35,9 +39,8 @@ class SystemFragment: BaseBindingFragment<FragmentSystemBinding>(
 
                         }
                         is DetailUiState.SUCCESS -> {
-                            Toast.makeText(context, "请求到了" + detailUiState.data.size + "条数据", Toast.LENGTH_SHORT).show()
-//                            binding.recyclerView.visibility = View.VISIBLE
-//                            articleAdapter.setList(detailUiState.data.datas)
+                            binding.rvSystem.visibility = View.VISIBLE
+                            sysAdapter.setList(detailUiState.data)
                         }
 
                         else -> {}
