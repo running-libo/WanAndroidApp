@@ -1,4 +1,4 @@
-package com.example.basemodule.base
+package com.example.basemodule.basemvi
 
 import androidx.recyclerview.widget.RecyclerView
 

@@ -1,6 +1,6 @@
 package com.example.flowmvihilt.system
 
-import com.example.basemodule.base.IUiState
+import com.example.basemodule.basemvi.IUiState
 import com.example.basemodule.entity.SystemData
 
 data class SysUiState(val detailUiState: DetailUiState): IUiState

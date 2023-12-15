@@ -1,6 +1,6 @@
 package com.example.flowmvihilt.ui.main
 
-import com.example.basemodule.base.IUiState
+import com.example.basemodule.basemvi.IUiState
 import com.example.basemodule.entity.ArticleListData
 import com.example.basemodule.entity.BannerData
 

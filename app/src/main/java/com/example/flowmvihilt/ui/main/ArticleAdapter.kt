@@ -4,7 +4,7 @@ import android.content.Context
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
-import com.example.basemodule.base.BaseAdapter
+import com.example.basemodule.basemvi.BaseAdapter
 import com.example.flowmvihilt.databinding.ItemArticleBinding
 import com.example.basemodule.entity.DataX
 import dagger.hilt.android.qualifiers.ActivityContext

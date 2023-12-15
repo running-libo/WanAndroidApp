@@ -4,9 +4,9 @@ import android.os.Bundle
 import android.view.View
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.lifecycleScope
-import com.example.basemodule.base.BaseAdapter
-import com.example.basemodule.base.BaseBindingFragment
-import com.example.basemodule.base.LoadUiIntent
+import com.example.basemodule.basemvi.BaseAdapter
+import com.example.basemodule.basemvi.BaseBindingFragment
+import com.example.basemodule.basemvi.LoadUiIntent
 import com.example.flowmvihilt.databinding.FragmentSystemBinding
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.flow.map

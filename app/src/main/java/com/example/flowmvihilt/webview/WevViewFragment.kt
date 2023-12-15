@@ -4,12 +4,11 @@ import android.content.Intent
 import android.net.Uri
 import android.os.Bundle
 import android.view.View
-import android.view.ViewGroup
 import android.webkit.WebChromeClient
 import android.webkit.WebSettings
 import android.webkit.WebView
 import android.webkit.WebViewClient
-import com.example.basemodule.base.BaseBindingFragment
+import com.example.basemodule.basemvi.BaseBindingFragment
 import com.example.flowmvihilt.databinding.FragmentWebviewBinding
 import dagger.hilt.android.AndroidEntryPoint
 

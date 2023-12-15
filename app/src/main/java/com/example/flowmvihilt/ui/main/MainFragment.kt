@@ -7,9 +7,9 @@ import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.RecyclerView
 import androidx.viewpager2.widget.ViewPager2
-import com.example.basemodule.base.BaseAdapter
-import com.example.basemodule.base.BaseBindingFragment
-import com.example.basemodule.base.LoadUiIntent
+import com.example.basemodule.basemvi.BaseAdapter
+import com.example.basemodule.basemvi.BaseBindingFragment
+import com.example.basemodule.basemvi.LoadUiIntent
 import com.example.basemodule.entity.BannerData
 import com.example.basemodule.entity.DataX
 import com.example.flowmvihilt.databinding.FragmentMainBinding

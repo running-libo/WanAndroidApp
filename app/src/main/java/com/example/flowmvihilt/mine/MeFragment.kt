@@ -3,7 +3,7 @@ package com.example.flowmvihilt.mine
 import android.content.Context
 import android.os.Bundle
 import android.view.View
-import com.example.basemodule.base.BaseBindingFragment
+import com.example.basemodule.basemvi.BaseBindingFragment
 import com.example.basemodule.util.LanguageHelper
 import com.example.flowmvihilt.databinding.FragmentMeBinding
 import dagger.hilt.android.AndroidEntryPoint

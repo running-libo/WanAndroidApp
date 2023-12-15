@@ -3,7 +3,7 @@ package com.example.flowmvihilt.system
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
-import com.example.basemodule.base.BaseAdapter
+import com.example.basemodule.basemvi.BaseAdapter
 import com.example.flowmvihilt.databinding.ItemSystemBinding
 import com.example.flowmvihilt.databinding.ItemTagviewBinding
 import com.example.basemodule.entity.SystemData
