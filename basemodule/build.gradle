@@ -55,4 +55,10 @@ dependencies {
 
     //tagview
     api 'io.github.running-libo:flowlayout:1.0.0'
+
+    //Banner
+    api "androidx.viewpager2:viewpager2:1.0.0"
+
+    //Glide
+    api 'com.github.bumptech.glide:glide:4.8.0'
 }
