@@ -4,6 +4,8 @@ import com.example.flowmvihilt.domain.repository.MainRepositoryImpl
 import com.example.flowmvihilt.domain.dispatchers.CoroutinesDispatchersProvider
 import com.example.flowmvihilt.domain.dispatchers.CoroutinesDispatchersProviderImpl
 import com.example.flowmvihilt.domain.repository.MainRepository
+import com.example.flowmvihilt.domain.repository.QaRepository
+import com.example.flowmvihilt.domain.repository.QaRepositoryImpl
 import com.example.flowmvihilt.domain.repository.SysRepository
 import com.example.flowmvihilt.domain.repository.SysRepositoryImpl
 import dagger.Binds
@@ -23,5 +25,8 @@ interface DomainModule {
 
     @Binds
     fun provideSysRepository(sysRepositoryImpl: SysRepositoryImpl): SysRepository
+
+    @Binds
+    fun provideQaRepository(qaRepositoryImpl: QaRepositoryImpl): QaRepository
 
 }
