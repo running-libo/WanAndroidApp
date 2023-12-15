@@ -16,3 +16,4 @@ rootProject.name = "FlowMviHilt"
 include ':app'
 include ':basemodule'
 include ':resmodule'
+include ':networkmodule'
