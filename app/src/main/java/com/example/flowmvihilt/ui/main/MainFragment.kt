@@ -6,6 +6,7 @@ import androidx.core.view.marginLeft
 import androidx.core.view.marginRight
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.lifecycleScope
+import androidx.lifecycle.repeatOnLifecycle
 import androidx.viewpager2.widget.ViewPager2
 import com.example.basemodule.base.BaseBindingFragment
 import com.example.basemodule.base.LoadUiIntent
@@ -33,8 +34,8 @@ class MainFragment: BaseBindingFragment<FragmentMainBinding>(
         binding.recyclerView.adapter = articleAdapter
 
         mainVm.sendUiIntent(MainIntent.getDetail(0))
+        mainVm.sendUiIntent(MainIntent.getBanner)
 
-        setBannerAdapter()
         observe()
     }
 
@@ -49,6 +50,20 @@ class MainFragment: BaseBindingFragment<FragmentMainBinding>(
                         is DetailUiState.SUCCESS -> {
                             binding.recyclerView.visibility = View.VISIBLE
                             articleAdapter.setList(detailUiState.data.datas)
+                        }
+                    }
+                }
+        }
+
+        lifecycleScope.launch {
+            mainVm.uiStateFlow.map { it.bannerUiState }
+                .collect { bannerUiState ->
+                    when(bannerUiState) {
+                        is BannerUiState.INIT -> {
+
+                        }
+                        is BannerUiState.SUCCESS -> {
+                            setBannerAdapter(bannerUiState.data)
                         }
                     }
                 }
@@ -71,7 +86,7 @@ class MainFragment: BaseBindingFragment<FragmentMainBinding>(
         }
     }
 
-    private fun setBannerAdapter() {
+    private fun setBannerAdapter(datas: ArrayList<BannerData>) {
         with(binding.viewpager) {
             orientation = ViewPager2.ORIENTATION_HORIZONTAL
 //            setAutoTurningTime(3000)
@@ -80,8 +95,6 @@ class MainFragment: BaseBindingFragment<FragmentMainBinding>(
 //            marginRight = context.dip2pxInt(20f)
 //            setPageMargin(context.dip2pxInt(20f), context.dip2pxInt(10f)) //设置左右页面露出来的宽度及item与item之间的宽度
 //            addPageTransformer(ScaleInTransformer()) //内置ScaleInTransformer，设置切换缩放动画
-
-            var datas = ArrayList<BannerData>()
 
             adapter = BannerAdapter(context, datas)
         }

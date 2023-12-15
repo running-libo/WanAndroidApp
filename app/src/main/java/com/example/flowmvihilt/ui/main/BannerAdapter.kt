@@ -17,12 +17,11 @@ import javax.inject.Inject
 class BannerAdapter @Inject constructor(val context: Context, val datas: ArrayList<BannerData>): RecyclerView.Adapter<BannerAdapter.ViewHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
-//        var view = layoutInflater!!.inflate(R.layout.item_banner, parent, false)
         return ViewHolder(ItemBannerBinding.inflate(LayoutInflater.from(parent.context), parent, false))
     }
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-        holder.bindData()
+        holder.bindData(context, datas[position])
 
     }
 
@@ -34,13 +33,10 @@ class BannerAdapter @Inject constructor(val context: Context, val datas: ArrayLi
     }
 
     class ViewHolder(val binding: ItemBannerBinding) : RecyclerView.ViewHolder(binding.root) {
-        fun bindData() {
-//            Glide.with(context).load(datas[position].imagePath).into(binding.ivCover)
+        fun bindData(context: Context, data: BannerData) {
+            Glide.with(context).load(data.imagePath).into(binding.ivCover)
 
             binding.ivCover.setOnClickListener {
-//            ARouter.getInstance().build("/article/webpage")
-//                .withString("url", datas[position].url)
-//                .navigation()
             }
         }
     }

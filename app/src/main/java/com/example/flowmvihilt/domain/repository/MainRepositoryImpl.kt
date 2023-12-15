@@ -3,6 +3,7 @@ package com.example.flowmvihilt.domain.repository
 import com.example.flowmvihilt.data.remote.MainApiService
 import com.example.flowmvihilt.domain.dispatchers.CoroutinesDispatchersProvider
 import com.example.basemodule.entity.ArticleListData
+import com.example.basemodule.entity.BannerData
 import com.example.basemodule.entity.BaseData
 import kotlinx.coroutines.withContext
 import javax.inject.Inject
@@ -22,5 +23,12 @@ class MainRepositoryImpl @Inject constructor(
             apiService.getHomePageData(page)
         }
     }
+
+    override suspend fun getBanner(): BaseData<List<BannerData>> {
+        return withContext(dispatchersProvider.io) {
+            apiService.getBannerData()
+        }
+    }
+
 
 }
