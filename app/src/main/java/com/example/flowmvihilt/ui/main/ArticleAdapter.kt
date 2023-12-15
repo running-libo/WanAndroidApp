@@ -22,11 +22,7 @@ class ArticleAdapter @Inject constructor(@ActivityContext val context: Context):
 
     override fun onBindViewHolder(holder: ArticleViewHolder, position: Int) {
         holder.bindData(mList[position])
-        holder.binding.root.setOnClickListener {
-            itemClickListener?.let {
-                it.onItemClick(mList[position])
-            }
-        }
+        holder.binding.root.setOnItemClick(position)
     }
 
     class ArticleViewHolder(val binding: ItemArticleBinding) : RecyclerView.ViewHolder(binding.root) {

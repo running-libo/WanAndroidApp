@@ -54,6 +54,13 @@ class MainFragment: BaseBindingFragment<FragmentMainBinding>(
                 })
             }
         })
+        bannerAdapter.setOnClickListener(object: BaseAdapter.OnItemClickListener {
+            override fun <E> onItemClick(data: E) {
+                findNavController().navigate(com.example.resmodule.R.id.navigation_webview, Bundle().apply {
+                    putString("url", (data as BannerData).url)
+                })
+            }
+        })
     }
 
     private fun observe() {

@@ -25,6 +25,7 @@ class BannerAdapter @Inject constructor(@ActivityContext val context: Context): 
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         holder.bindData(mList[position])
+        holder.binding.ivCover.setOnItemClick(position)
     }
 
     class ViewHolder(val binding: ItemBannerBinding) : RecyclerView.ViewHolder(binding.root) {
@@ -33,10 +34,6 @@ class BannerAdapter @Inject constructor(@ActivityContext val context: Context): 
                 crossfade(true)
                 .crossfade(200)  //淡入淡出时间
                 transformations(RoundedCornersTransformation(10f))
-            }
-
-            binding.ivCover.setOnClickListener {
-
             }
         }
     }

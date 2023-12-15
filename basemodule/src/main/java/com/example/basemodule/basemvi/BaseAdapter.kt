@@ -1,5 +1,6 @@
 package com.example.basemodule.basemvi
 
+import android.view.View
 import androidx.recyclerview.widget.RecyclerView
 
 abstract class BaseAdapter <VH : RecyclerView.ViewHolder?, T> : RecyclerView.Adapter<VH>() {
@@ -8,6 +9,14 @@ abstract class BaseAdapter <VH : RecyclerView.ViewHolder?, T> : RecyclerView.Ada
 
     fun setOnClickListener(itemClickListener: OnItemClickListener) {
         this.itemClickListener = itemClickListener
+    }
+
+    fun View.setOnItemClick(position: Int) {
+        setOnClickListener {
+            itemClickListener?.let {
+                it.onItemClick(mList[position])
+            }
+        }
     }
 
     fun setList(list: List<T>) {

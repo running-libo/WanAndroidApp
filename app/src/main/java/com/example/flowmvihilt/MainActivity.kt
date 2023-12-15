@@ -6,9 +6,12 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.ui.setupWithNavController
+import com.example.basemodule.util.ActivityManager.exitApp
+import com.example.basemodule.util.ActivityManager.finishAll
 import com.example.basemodule.util.GrayManager
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import dagger.hilt.android.AndroidEntryPoint
+import java.lang.System.exit
 
 @AndroidEntryPoint
 class MainActivity : AppCompatActivity() {
@@ -50,7 +53,8 @@ class MainActivity : AppCompatActivity() {
             Toast.makeText(applicationContext, R.string.exit_app, Toast.LENGTH_SHORT).show()
             lastTime = System.currentTimeMillis()
         } else {
-            System.exit(0)
+            finishAll()
+            exitApp()
             super.onBackPressed()
         }
     }

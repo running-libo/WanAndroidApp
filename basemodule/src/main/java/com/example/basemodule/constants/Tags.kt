@@ -7,8 +7,16 @@ interface Tags {
 
     companion object {
 
-        const val WAN_ANDROID = "wanandroid"
+        private const val WAN_ANDROID = "wanandroid"
 
-        const val APPLICATION = "application"
+        /**
+         * application生命周期变化日志
+         */
+        const val APPLICATION = WAN_ANDROID + "application"
+
+        /**
+         * activity生命周期变化日志
+         */
+        const val ACTIVITY = WAN_ANDROID + "activity"
     }
 }
