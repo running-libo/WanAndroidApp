@@ -1,6 +1,6 @@
 package com.example.flowmvihilt.ui.main
 
-import com.example.basemodule.basemvi.BaseViewModel
+import com.example.basemodule.basemvi.BasePageViewModel
 import com.example.basemodule.basemvi.IUiIntent
 import com.example.basemodule.entity.BannerData
 import com.example.flowmvihilt.domain.repository.MainRepository
@@ -8,7 +8,7 @@ import dagger.hilt.android.lifecycle.HiltViewModel
 import javax.inject.Inject
 
 @HiltViewModel
-class MainVM @Inject constructor(private val mainRepository: MainRepository) : BaseViewModel<MainUiState, MainIntent>() {
+class MainVM @Inject constructor(private val mainRepository: MainRepository) : BasePageViewModel<MainUiState, MainIntent>() {
 
     override fun handleIntent(intent: IUiIntent) {
             when(intent) {

@@ -13,6 +13,8 @@ import com.example.basemodule.basemvi.LoadUiIntent
 import com.example.basemodule.entity.BannerData
 import com.example.basemodule.entity.DataX
 import com.example.flowmvihilt.databinding.FragmentMainBinding
+import com.scwang.smart.refresh.layout.api.RefreshLayout
+import com.scwang.smart.refresh.layout.listener.OnRefreshLoadMoreListener
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.flow.map
 import kotlinx.coroutines.launch
@@ -37,6 +39,7 @@ class MainFragment: BaseBindingFragment<FragmentMainBinding>(
         observe()
 
         initAdapter()
+        setRefreshLoadMore()
     }
 
     private fun initAdapter() {
@@ -108,5 +111,17 @@ class MainFragment: BaseBindingFragment<FragmentMainBinding>(
             recyclerView.clipToPadding = false
             adapter = BannerAdapter(context, datas)
         }
+    }
+
+    private fun setRefreshLoadMore() {
+        binding.smartRefreshLayout.setOnRefreshLoadMoreListener(object: OnRefreshLoadMoreListener {
+            override fun onRefresh(refreshLayout: RefreshLayout) {
+
+            }
+
+            override fun onLoadMore(refreshLayout: RefreshLayout) {
+
+            }
+        })
     }
 }

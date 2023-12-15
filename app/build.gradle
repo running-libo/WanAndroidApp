@@ -59,5 +59,10 @@ dependencies {
     implementation 'androidx.navigation:navigation-fragment-ktx:2.3.2'
     implementation 'androidx.navigation:navigation-ui-ktx:2.3.2'
 
+    //SmartRefreshLayout
+    implementation 'com.scwang.smartrefresh:SmartRefreshHeader:1.1.0'
+    implementation  'io.github.scwang90:refresh-layout-kernel:2.1.0'      //核心必须依赖
+    implementation  'io.github.scwang90:refresh-header-classics:2.1.0'    //经典刷新头
+
     implementation project(path: ':networkmodule')
 }

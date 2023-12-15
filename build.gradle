@@ -1,21 +1,34 @@
 // Top-level build file where you can add configuration options common to all sub-projects/modules.
 buildscript {
     ext {
-        kotlin_version = "1.4.21"
+        kotlin_version = '1.6.21'
         dagger_hilt_version = "2.42"
         coroutines_version = "1.6.0"
         nav_version = "2.1.0"
         ktlint_version = "0.43.2"
     }
 
+    repositories {
+        //构建项目时会拉取gradle资源，而goole和jcenter在国内的网络环境并不好，容易出现包拉取失败的问题。推荐使用国内阿里的镜像。
+        //repositories里仓库具有从上到下先后获取顺序
+        maven{ url 'https://maven.aliyun.com/nexus/content/groups/public/'}
+        maven{ url 'https://maven.aliyun.com/nexus/content/repositories/jcenter'}
+        google()
+        mavenCentral()
+    }
     dependencies {
+        //在这里配置插件
+        classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"  //kotlin插件版本
         classpath "com.google.dagger:hilt-android-gradle-plugin:$dagger_hilt_version"
+
+        // NOTE: Do not place your application dependencies here; they belong
+        // in the individual module build.gradle files
     }
 }
 
 plugins {
-    id 'com.android.application' version '7.3.1' apply false
-    id 'com.android.library' version '7.3.1' apply false
+    id 'com.android.application' version '7.4.2' apply false
+    id 'com.android.library' version '7.4.2' apply false
     id 'org.jetbrains.kotlin.android' version '1.7.20' apply false
     id 'com.google.dagger.hilt.android' version '2.42' apply false
 }
