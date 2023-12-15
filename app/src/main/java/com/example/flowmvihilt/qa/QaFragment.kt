@@ -4,8 +4,11 @@ import android.os.Bundle
 import android.view.View
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.lifecycleScope
+import androidx.navigation.fragment.findNavController
+import com.example.basemodule.base.BaseAdapter
 import com.example.basemodule.base.BaseBindingFragment
 import com.example.basemodule.base.LoadUiIntent
+import com.example.basemodule.entity.DataBean
 import com.example.flowmvihilt.databinding.FragmentQaBinding
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.flow.map
@@ -28,6 +31,14 @@ class QaFragment: BaseBindingFragment<FragmentQaBinding>(
         binding.rvQa.adapter = qaAdapter
 
         observe()
+
+        qaAdapter.setOnClickListener(object: BaseAdapter.OnItemClickListener {
+            override fun <E> onItemClick(data: E) {
+                findNavController().navigate(com.example.resmodule.R.id.navigation_webview, Bundle().apply {
+                    putString("url", (data as DataBean).link)
+                })
+            }
+        })
     }
 
     private fun observe() {

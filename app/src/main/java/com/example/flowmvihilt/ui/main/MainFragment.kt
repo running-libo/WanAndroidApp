@@ -7,10 +7,11 @@ import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.RecyclerView
 import androidx.viewpager2.widget.ViewPager2
+import com.example.basemodule.base.BaseAdapter
 import com.example.basemodule.base.BaseBindingFragment
 import com.example.basemodule.base.LoadUiIntent
 import com.example.basemodule.entity.BannerData
-import com.example.flowmvihilt.R
+import com.example.basemodule.entity.DataX
 import com.example.flowmvihilt.databinding.FragmentMainBinding
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.flow.map
@@ -30,8 +31,6 @@ class MainFragment: BaseBindingFragment<FragmentMainBinding>(
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-
-
         mainVm.sendUiIntent(MainIntent.getDetail(0))
         mainVm.sendUiIntent(MainIntent.getBanner)
 
@@ -42,10 +41,11 @@ class MainFragment: BaseBindingFragment<FragmentMainBinding>(
 
     private fun initAdapter() {
         binding.recyclerView.adapter = articleAdapter
-        articleAdapter.setOnClickListener(object: ArticleAdapter.OnItemClickListener {
-            override fun onItemClick(url: String) {
-                findNavController().navigate(com.example.resmodule.R.id.navigation_webview, Bundle().apply {
+        articleAdapter.setOnClickListener(object: BaseAdapter.OnItemClickListener {
 
+            override fun <E> onItemClick(data: E) {
+                findNavController().navigate(com.example.resmodule.R.id.navigation_webview, Bundle().apply {
+                    putString("url", (data as DataX).link)
                 })
             }
         })

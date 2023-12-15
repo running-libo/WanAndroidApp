@@ -3,12 +3,13 @@ package com.example.flowmvihilt.system
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
+import com.example.basemodule.base.BaseAdapter
 import com.example.flowmvihilt.databinding.ItemSystemBinding
 import com.example.flowmvihilt.databinding.ItemTagviewBinding
 import com.example.basemodule.entity.SystemData
 import javax.inject.Inject
 
-class SystemAdapter @Inject constructor(): RecyclerView.Adapter<SystemAdapter.SysViewHolder>() {
+class SystemAdapter @Inject constructor(): BaseAdapter<SystemAdapter.SysViewHolder>() {
     private var mList: List<SystemData> = ArrayList()
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): SysViewHolder {
@@ -22,7 +23,7 @@ class SystemAdapter @Inject constructor(): RecyclerView.Adapter<SystemAdapter.Sy
     override fun onBindViewHolder(holder: SysViewHolder, position: Int) {
         holder.bindData(mList[position])
         holder.binding.root.setOnClickListener {
-
+            itemClickListener?.onItemClick(mList[position])
         }
     }
 

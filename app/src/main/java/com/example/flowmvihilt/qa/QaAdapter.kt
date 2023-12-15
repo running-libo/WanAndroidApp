@@ -3,11 +3,12 @@ package com.example.flowmvihilt.qa
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
+import com.example.basemodule.base.BaseAdapter
 import com.example.basemodule.entity.DataBean
 import com.example.flowmvihilt.databinding.ItemQuestionBinding
 import javax.inject.Inject
 
-class QaAdapter @Inject constructor(): RecyclerView.Adapter<QaAdapter.QaViewHolder>() {
+class QaAdapter @Inject constructor(): BaseAdapter<QaAdapter.QaViewHolder>() {
     private var mList: List<DataBean> = ArrayList()
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): QaViewHolder {
@@ -21,7 +22,7 @@ class QaAdapter @Inject constructor(): RecyclerView.Adapter<QaAdapter.QaViewHold
     override fun onBindViewHolder(holder: QaViewHolder, position: Int) {
         holder.bindData(mList[position])
         holder.binding.root.setOnClickListener {
-
+            itemClickListener?.onItemClick(mList[position])
         }
     }
 

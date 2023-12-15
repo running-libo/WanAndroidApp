@@ -4,6 +4,7 @@ import android.os.Bundle
 import android.view.View
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.lifecycleScope
+import com.example.basemodule.base.BaseAdapter
 import com.example.basemodule.base.BaseBindingFragment
 import com.example.basemodule.base.LoadUiIntent
 import com.example.flowmvihilt.databinding.FragmentSystemBinding
@@ -28,6 +29,12 @@ class SystemFragment: BaseBindingFragment<FragmentSystemBinding>(
         binding.rvSystem.adapter = sysAdapter
 
         observe()
+
+        sysAdapter.setOnClickListener(object: BaseAdapter.OnItemClickListener {
+            override fun <E> onItemClick(data: E) {
+
+            }
+        })
     }
 
     private fun observe() {
