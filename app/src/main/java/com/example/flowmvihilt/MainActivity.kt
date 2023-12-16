@@ -32,7 +32,7 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun isGrayMode() {
-        var isGrayMode = getSharedPreferences("mode", MODE_PRIVATE).getBoolean("mode", false)
+        var isGrayMode = getSharedPreferences("wan_sp", MODE_PRIVATE).getBoolean("mode", false)
         if (isGrayMode) {
             //当前为
             GrayManager.setColorThemeMode(window.decorView)

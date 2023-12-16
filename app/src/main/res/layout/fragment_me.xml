@@ -467,7 +467,7 @@
                     app:layout_constraintLeft_toLeftOf="@id/guideline_left" />
 
                 <Switch
-                    android:id="@+id/view_switch"
+                    android:id="@+id/view_switch_gray"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     app:layout_constraintTop_toTopOf="@id/view_line3"
@@ -514,20 +514,20 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="意见反馈"
+                    android:text="智能无图"
                     android:textSize="15sp"
                     android:textColor="@color/black"
                     app:layout_constraintTop_toTopOf="@id/view_line6"
                     app:layout_constraintBottom_toBottomOf="@id/view_line7"
                     app:layout_constraintLeft_toLeftOf="@id/guideline_left" />
 
-                <TextView
+                <Switch
+                    android:id="@+id/view_switch_pic"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     app:layout_constraintTop_toTopOf="@id/view_line6"
                     app:layout_constraintBottom_toBottomOf="@id/view_line7"
-                    app:layout_constraintRight_toRightOf="@id/guideline_right"
-                    android:drawableRight="@mipmap/arrow_right" />
+                    app:layout_constraintRight_toRightOf="@id/guideline_right" />
 
                 <TextView
                     android:layout_width="wrap_content"

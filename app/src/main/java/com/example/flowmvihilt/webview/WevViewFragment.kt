@@ -1,5 +1,6 @@
 package com.example.flowmvihilt.webview
 
+import android.content.Context
 import android.os.Bundle
 import android.view.View
 import android.webkit.WebSettings
@@ -12,7 +13,7 @@ import kotlinx.coroutines.launch
 import javax.inject.Inject
 
 @AndroidEntryPoint
-class WevViewFragment : BaseBindingFragment<FragmentWebviewBinding>({
+class WevViewFragment: BaseBindingFragment<FragmentWebviewBinding>({
     FragmentWebviewBinding.inflate(it)
 }) {
     private var url: String?= null
@@ -29,9 +30,11 @@ class WevViewFragment : BaseBindingFragment<FragmentWebviewBinding>({
         url = arguments?.getString("url")
         setSetting()
         initWebView()
+        initRefreshLoadMore()
     }
 
     private fun setSetting() {
+        var isLoadPicMode = context?.getSharedPreferences("wan_sp", Context.MODE_PRIVATE)?.getBoolean("loadPic", true)
         binding.webview.settings.apply {
             javaScriptEnabled = true //支持javascript
 
@@ -49,7 +52,7 @@ class WevViewFragment : BaseBindingFragment<FragmentWebviewBinding>({
             domStorageEnabled = true
             cacheMode = WebSettings.LOAD_CACHE_ELSE_NETWORK //优先使用缓存
 
-            loadsImagesAutomatically = false //支持自动加载图片
+            loadsImagesAutomatically = !isLoadPicMode!! //设置无图模式
         }
 
     }
@@ -63,11 +66,19 @@ class WevViewFragment : BaseBindingFragment<FragmentWebviewBinding>({
                 }, loadFinish = {
                     lifecycleScope.launch {
                         delay(100)
+                        binding.smartRefreshLayout.finishRefresh()
                         binding.progressbar.visibility = View.GONE  //隐藏webview进度条
                     }
                 })
         }
         url?.let { binding.webview.loadUrl(it) }
+    }
+
+    private fun initRefreshLoadMore() {
+        binding.smartRefreshLayout.setOnRefreshListener {
+            binding.webview.reload()
+            binding.smartRefreshLayout.finishRefresh()
+        }
     }
 
     /**

@@ -16,14 +16,20 @@ class MeFragment: BaseBindingFragment<FragmentMeBinding>(
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        var isGrayMode = context?.getSharedPreferences("mode", Context.MODE_PRIVATE)?.getBoolean("mode", false)
-        binding.viewSwitch.isChecked = isGrayMode!!
+        var isGrayMode = context?.getSharedPreferences("wan_sp", Context.MODE_PRIVATE)?.getBoolean("mode", false)
+        binding.viewSwitchGray.isChecked = isGrayMode!!
 
-        binding.viewSwitch.setOnCheckedChangeListener { buttonView, isChecked ->
-            context?.getSharedPreferences("mode", Context.MODE_PRIVATE)?.edit()?.putBoolean("mode", isChecked)?.commit()
+        var isLoadPicMode = context?.getSharedPreferences("wan_sp", Context.MODE_PRIVATE)?.getBoolean("loadPic", true)
+        binding.viewSwitchPic.isChecked = isLoadPicMode!!
+
+        binding.viewSwitchGray.setOnCheckedChangeListener { buttonView, isChecked ->
+            context?.getSharedPreferences("wan_sp", Context.MODE_PRIVATE)?.edit()?.putBoolean("mode", isChecked)?.commit()
+        }
+
+        binding.viewSwitchPic.setOnCheckedChangeListener { buttonView, isChecked ->
+            context?.getSharedPreferences("wan_sp", Context.MODE_PRIVATE)?.edit()?.putBoolean("loadPic", isChecked)?.commit()
         }
 
         binding.tvCurLanguage.text = LanguageHelper.getSystemLanguage()
-//        findNavController().navigate(R.id.action_to_artical)
     }
 }
