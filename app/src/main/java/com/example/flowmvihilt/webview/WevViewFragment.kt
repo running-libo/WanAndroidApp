@@ -3,9 +3,12 @@ package com.example.flowmvihilt.webview
 import android.os.Bundle
 import android.view.View
 import android.webkit.WebSettings
+import androidx.lifecycle.lifecycleScope
 import com.example.basemodule.basemvi.BaseBindingFragment
 import com.example.flowmvihilt.databinding.FragmentWebviewBinding
 import dagger.hilt.android.AndroidEntryPoint
+import kotlinx.coroutines.delay
+import kotlinx.coroutines.launch
 import javax.inject.Inject
 
 @AndroidEntryPoint
@@ -15,8 +18,6 @@ class WevViewFragment : BaseBindingFragment<FragmentWebviewBinding>({
     private var url: String?= null
     @Inject
     lateinit var wanWebViewClient: WanWebViewClient
-//    @Inject
-//    lateinit var wanWebChromeClient: WanWebChromeClient
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
@@ -28,8 +29,6 @@ class WevViewFragment : BaseBindingFragment<FragmentWebviewBinding>({
         url = arguments?.getString("url")
         setSetting()
         initWebView()
-
-
     }
 
     private fun setSetting() {
@@ -58,6 +57,15 @@ class WevViewFragment : BaseBindingFragment<FragmentWebviewBinding>({
     private fun initWebView() {
         with(binding.webview) {
             webViewClient = wanWebViewClient
+            webChromeClient = WanWebChromeClient(
+                loadProgress = {
+                    binding.progressbar.progress = it //webview进度条更新
+                }, loadFinish = {
+                    lifecycleScope.launch {
+                        delay(100)
+                        binding.progressbar.visibility = View.GONE  //隐藏webview进度条
+                    }
+                })
         }
         url?.let { binding.webview.loadUrl(it) }
     }

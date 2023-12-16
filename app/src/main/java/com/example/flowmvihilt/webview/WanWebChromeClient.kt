@@ -7,16 +7,20 @@ import android.webkit.WebChromeClient
 import android.webkit.WebView
 import com.example.basemodule.constants.Tags.Companion.WEBVIEW
 import com.example.basemodule.util.LogUtils
+import kotlinx.coroutines.delay
 import javax.inject.Inject
 
 /**
  * WebChromeClient主要辅助WebView处理Javascript的对话框、网站图标、网站标题、加载进度等。
  */
-class WanWebChromeClient @Inject constructor(val curProgress: (newProgress: Int) -> Unit) : WebChromeClient() {
+class WanWebChromeClient @Inject constructor(val loadProgress: (newProgress: Int) -> Unit, private val loadFinish: () ->Unit) : WebChromeClient() {
     override fun onProgressChanged(view: WebView, newProgress: Int) {
         //这个方法会在网页加载过程中多次触发，当 newProgress = 100 时，可以认为网页加载完成。这个方法比 onPageFinished 更为准确，一般用来实现自定义进度条加载。
         LogUtils.d({WEBVIEW}, "当前加载进度： $newProgress")
-        curProgress(newProgress)
+        loadProgress(newProgress)
+        if (newProgress == 100) {
+            loadFinish.invoke()
+        }
         super.onProgressChanged(view, newProgress)
     }
 
