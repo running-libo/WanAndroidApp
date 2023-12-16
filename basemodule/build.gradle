@@ -66,5 +66,8 @@ dependencies {
     //Coil
     api 'io.coil-kt:coil:1.4.0'
 
+    //leakcanary
+    debugApi 'com.squareup.leakcanary:leakcanary-android:2.7'
+
     api project(path: ':resmodule')
 }
