@@ -18,5 +18,10 @@ interface Tags {
          * activity生命周期变化日志
          */
         const val ACTIVITY = WAN_ANDROID + "activity"
+
+        /**
+         * Webview日志
+         */
+        const val WEBVIEW = WAN_ANDROID + "webview"
     }
 }

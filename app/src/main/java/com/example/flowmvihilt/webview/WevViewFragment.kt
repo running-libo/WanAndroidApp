@@ -1,22 +1,22 @@
 package com.example.flowmvihilt.webview
 
-import android.content.Intent
-import android.net.Uri
 import android.os.Bundle
 import android.view.View
-import android.webkit.WebChromeClient
 import android.webkit.WebSettings
-import android.webkit.WebView
-import android.webkit.WebViewClient
 import com.example.basemodule.basemvi.BaseBindingFragment
 import com.example.flowmvihilt.databinding.FragmentWebviewBinding
 import dagger.hilt.android.AndroidEntryPoint
+import javax.inject.Inject
 
 @AndroidEntryPoint
 class WevViewFragment : BaseBindingFragment<FragmentWebviewBinding>({
     FragmentWebviewBinding.inflate(it)
 }) {
     private var url: String?= null
+    @Inject
+    lateinit var wanWebViewClient: WanWebViewClient
+//    @Inject
+//    lateinit var wanWebChromeClient: WanWebChromeClient
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
@@ -28,59 +28,50 @@ class WevViewFragment : BaseBindingFragment<FragmentWebviewBinding>({
         url = arguments?.getString("url")
         setSetting()
         initWebView()
+
+
     }
 
     private fun setSetting() {
         binding.webview.settings.apply {
-            //支持javascript
-            javaScriptEnabled = true
-            // 设置可以支持缩放
-            setSupportZoom(true)
-            useWideViewPort = true
-            //自适应屏幕
-            layoutAlgorithm = WebSettings.LayoutAlgorithm.SINGLE_COLUMN
-            loadWithOverviewMode = true
+            javaScriptEnabled = true //支持javascript
+
+            setSupportZoom(true) // 设置可以支持缩放
+            builtInZoomControls = true //设置内置的缩放控件。若为false，则该WebView不可缩放
+            displayZoomControls = false //隐藏屏幕中的虚拟缩放按钮
+
+            textZoom = 100 //字体百分比，替代原API:setTextSize
+
+            allowFileAccess = true //设置可以访问文件
+
+            layoutAlgorithm = WebSettings.LayoutAlgorithm.SINGLE_COLUMN //自适应屏幕
+            useWideViewPort = true //将图片调整到适合webview的大小
+            loadWithOverviewMode = true // 缩放至屏幕的大小
             domStorageEnabled = true
-            cacheMode = WebSettings.LOAD_CACHE_ELSE_NETWORK
+            cacheMode = WebSettings.LOAD_CACHE_ELSE_NETWORK //优先使用缓存
+
+            loadsImagesAutomatically = false //支持自动加载图片
         }
 
     }
 
     private fun initWebView() {
-        binding.webview.webViewClient = object: WebViewClient() {
-            override fun shouldOverrideUrlLoading(webview: WebView, url: String): Boolean {
-                if (url == null) {
-                    return false
-                }
-
-                if (url.startsWith("weixin://") || url.startsWith("jianshu://")) {
-                    val intent = Intent(Intent.ACTION_VIEW, Uri.parse(url))
-                    startActivity(intent)
-                    return true
-                }
-                webview.loadUrl(url)
-                return true
-            }
-        }
-        binding.webview.webChromeClient = object: WebChromeClient() {
-            override fun onProgressChanged(p0: WebView?, p1: Int) {
-                super.onProgressChanged(p0, p1)
-
-
-            }
+        with(binding.webview) {
+            webViewClient = wanWebViewClient
         }
         url?.let { binding.webview.loadUrl(it) }
     }
 
-//    override fun onDestroy() {
-//        binding?.let {
-//            with(it.webview) {
-//                loadDataWithBaseURL(null, "", "text/html", "utf-8", null)
-//                clearHistory()
-//                (parent as ViewGroup).removeView(this)
-//                destroy()
-//            }
+    /**
+     * 避免webview内存泄漏
+     */
+    override fun onDestroy() {
+//        binding?.webview?.let {
+//            it.loadDataWithBaseURL(null, "", "text/html", "utf-8", null)
+//            it.clearHistory()
+//            (it.parent as ViewGroup).removeView(it)
+//            it.destroy()
 //        }
-//        super.onDestroy()
-//    }
+        super.onDestroy()
+    }
 }
