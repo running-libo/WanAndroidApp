@@ -1,9 +1,9 @@
 package com.example.basemodule.util
 
 import android.app.Activity
-import android.content.Context
 import android.os.Process
 import java.util.*
+import kotlin.system.exitProcess
 
 /**
  * create by libo
@@ -25,7 +25,7 @@ object ActivityManager {
         if (activities == null) {
             activities = Stack()
         }
-        activities!!.add(activity)
+        activities?.add(activity)
     }
 
     /**
@@ -35,7 +35,7 @@ object ActivityManager {
      */
     fun removeActivity(activity: Activity?) {
         if (activity != null) {
-            activities!!.remove(activity)
+            activities?.remove(activity)
             activity.finish()
         }
     }
@@ -44,12 +44,12 @@ object ActivityManager {
      * 结束所有activity
      */
     fun finishAll() {
-        for (activity in activities!!) {
-            if (!activity.isFinishing) {
-                activity.finish()
+        activities?.forEach {
+            if (!it.isFinishing) {
+                it.finish()
             }
         }
-        activities!!.clear()
+        activities?.clear()
         Process.killProcess(Process.myPid())
     }
 
@@ -58,6 +58,6 @@ object ActivityManager {
      */
     fun exitApp() {
         // 结束进程
-        System.exit(0)
+        exitProcess(0)
     }
 }
