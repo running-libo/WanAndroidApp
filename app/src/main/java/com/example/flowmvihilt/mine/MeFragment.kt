@@ -7,6 +7,7 @@ import androidx.fragment.app.viewModels
 import com.example.basemodule.basemvi.BaseBindingFragment
 import com.example.basemodule.util.LanguageHelper
 import com.example.flowmvihilt.databinding.FragmentMeBinding
+import com.example.flowmvihilt.widget.NotificationCard
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
@@ -36,8 +37,12 @@ class MeFragment: BaseBindingFragment<FragmentMeBinding>(
         }
 
         binding.viewSwitchNight.setOnCheckedChangeListener { _, isChecked ->
-            //自 AppCompat v1.1.0 起，setDefaultNightMode() 会自动重新建立任何启动的活动
+            //自 AppCompat v1.1.0 起，setDefaultNightMode() 会自动重新建立任何启动的活动，调用activity的recreate方法
 //            meVm.switchNightMode(isChecked)
+        }
+
+        binding.viewSwitchNotify.setOnCheckedChangeListener { _, isChecked ->
+            NotificationCard.startNotificationWork(requireContext())
         }
 
         binding.tvCurLanguage.text = LanguageHelper.getSystemLanguage()

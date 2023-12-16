@@ -69,5 +69,8 @@ dependencies {
     //leakcanary
     debugApi 'com.squareup.leakcanary:leakcanary-android:2.7'
 
+    //workmanager
+    api 'androidx.work:work-runtime:2.7.1'
+
     api project(path: ':resmodule')
 }
