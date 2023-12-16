@@ -44,7 +44,7 @@
 
             <meta-data
                 android:name="android.appwidget.provider"
-                android:resource="@xml/google_search_widget_info" />
+                android:resource="@xml/wan_widget_info" />
         </receiver>
     </application>
 
