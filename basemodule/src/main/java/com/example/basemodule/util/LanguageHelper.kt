@@ -72,7 +72,5 @@ object LanguageHelper {
     /**
      * 获取当前系统语言显示
      */
-    fun getSystemLanguage(): String? {
-        return Locale.getDefault().language
-    }
+    fun getSystemLanguage(): String? = getSystemLocale().language
 }

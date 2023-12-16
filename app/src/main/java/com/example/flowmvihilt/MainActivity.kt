@@ -11,7 +11,6 @@ import com.example.basemodule.util.ActivityManager.finishAll
 import com.example.basemodule.util.GrayManager
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import dagger.hilt.android.AndroidEntryPoint
-import java.lang.System.exit
 
 @AndroidEntryPoint
 class MainActivity : AppCompatActivity() {
@@ -50,7 +49,7 @@ class MainActivity : AppCompatActivity() {
      */
     override fun onBackPressed() {
         if (System.currentTimeMillis() - lastTime > EXIT_TIME) {
-            Toast.makeText(applicationContext, R.string.exit_app, Toast.LENGTH_SHORT).show()
+            Toast.makeText(applicationContext, com.example.resmodule.R.string.exit_app, Toast.LENGTH_SHORT).show()
             lastTime = System.currentTimeMillis()
         } else {
             finishAll()

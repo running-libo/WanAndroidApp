@@ -1,0 +1,11 @@
+<resources>
+    <string name="app_name"> اللعب مع الروبوت</string>
+
+    <!-- 阿拉伯语string -->
+    <string name="home_page">الصفحة الرئيسية</string>
+    <string name="q_a">سؤال وجواب</string>
+    <string name="system">نظم</string>
+    <string name="mine">ركاز</string>
+
+    <string name="exit_app" translatable="false"> اضغط على الخروج مرة أخرى</string>
+</resources>
