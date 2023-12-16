@@ -494,14 +494,18 @@
                     android:drawableRight="@mipmap/arrow_right" />
 
                 <TextView
-                    android:layout_width="wrap_content"
+                    android:id="@+id/tv_addwidget"
+                    android:layout_width="0dp"
                     android:layout_height="wrap_content"
+                    android:paddingTop="10dp"
+                    android:paddingBottom="10dp"
                     android:text="添加桌面Widget"
                     android:textSize="15sp"
                     android:textColor="@color/black"
                     app:layout_constraintTop_toTopOf="@id/view_line5"
                     app:layout_constraintBottom_toBottomOf="@id/view_line6"
-                    app:layout_constraintLeft_toLeftOf="@id/guideline_left" />
+                    app:layout_constraintLeft_toLeftOf="@id/guideline_left"
+                    app:layout_constraintRight_toRightOf="@id/guideline_right"/>
 
                 <TextView
                     android:layout_width="wrap_content"

@@ -45,6 +45,10 @@ class MeFragment: BaseBindingFragment<FragmentMeBinding>(
             NotificationCard.startNotificationWork(requireContext())
         }
 
+        binding.tvAddwidget.setOnClickListener {
+            meVm.createDeskTopWidget()
+        }
+
         binding.tvCurLanguage.text = LanguageHelper.getSystemLanguage()
     }
 }
