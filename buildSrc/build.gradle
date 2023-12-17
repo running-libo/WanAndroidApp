@@ -1,0 +1,20 @@
+plugins {
+    id 'groovy'
+    id 'java-gradle-plugin'
+}
+
+dependencies {
+    implementation gradleApi()
+    implementation localGroovy()
+}
+
+gradlePlugin {
+    plugins {
+        buildcostplugin {
+            id = 'io.github.running-libo.buildcostplugin'
+            implementationClass = 'io.github.BuildCostPlugin'
+            displayName = 'statistics plugin'
+            description = 'This is a compilation time statistics plugin.'
+        }
+    }
+}
