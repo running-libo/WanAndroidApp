@@ -33,14 +33,8 @@ android {
 }
 
 dependencies {
-
-    implementation rootProject.ext.androidxDeps.appcompat
-    implementation rootProject.ext.androidxDeps.material
-
     // Retrofit, Gson Converter, OkHttp Logging
-    api rootProject.ext.squareup.moshi
-    api rootProject.ext.squareup.retrofit
-    api rootProject.ext.squareup.convertergson
+    api rootProject.ext.squareuplibs
 
     // Hilt
     api rootProject.ext.hilt.hilt

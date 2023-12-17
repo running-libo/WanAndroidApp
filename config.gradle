@@ -18,7 +18,8 @@ ext {
             moshi: '1.12.0',
             leakcanary: '2.7',
             navigation: '2.3.2',
-            refresh: '2.1.0'
+            refresh: '2.1.0',
+            work: '2.7.1'
     ]
 
     androidxDeps = [
@@ -27,9 +28,6 @@ ext {
             constraintlayout: 'androidx.constraintlayout:constraintlayout:2.0.4',
             kotlin          : "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version",
             corektx         : 'androidx.core:core-ktx:1.3.2',
-            work: 'androidx.work:work-runtime:2.7.1',
-            navigationfragment: 'androidx.navigation:navigation-fragment-ktx:2.3.2',
-            navigationui: 'androidx.navigation:navigation-ui-ktx:2.3.2'
     ]
 
     lifecycle = [
@@ -46,6 +44,15 @@ ext {
             moshi: "com.squareup.moshi:moshi-kotlin:${dependVersion.moshi}",
             retrofit: "com.squareup.retrofit2:retrofit:${dependVersion.retrofit}",
             convertergson: "com.squareup.retrofit2:converter-gson:${dependVersion.retrofit}"
+    ]
+
+    navigation = [
+            navigationfragment: "androidx.navigation:navigation-fragment-ktx:${dependVersion.navigation}",
+            navigationui: "androidx.navigation:navigation-ui-ktx:${dependVersion.navigation}"
+    ]
+
+    work = [
+            work: "androidx.work:work-runtime:${dependVersion.work}"
     ]
 
     hilt = [
@@ -74,5 +81,12 @@ ext {
             flowlayout: "io.github.running-libo:flowlayout:${dependVersion.flowlayout}"
     ]
 
+    //以集合的方法进行依赖
     androisxLibs = androidxDeps.values()
+    lifecycleLibs = lifecycle.values()
+    coroutineslibs = coroutines.values()
+    squareuplibs = squareup.values()
+    refreshlibs = refresh.values()
+    navigationlibs = navigation.values()
+
 }

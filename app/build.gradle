@@ -47,12 +47,6 @@ android {
 }
 
 dependencies {
-    implementation rootProject.ext.androidxDeps.appcompat
-    implementation rootProject.ext.androidxDeps.material
-    implementation rootProject.ext.androidxDeps.constraintlayout
-    implementation rootProject.ext.androidxDeps.kotlin
-    implementation rootProject.ext.androidxDeps.corektx
-
     // Hilt
     api rootProject.ext.hilt.hilt
     kapt rootProject.ext.hilt.compiler

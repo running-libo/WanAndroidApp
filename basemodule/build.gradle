@@ -42,20 +42,16 @@ android {
 }
 
 dependencies {
-
-    implementation rootProject.ext.androidxDeps.appcompat
-    implementation rootProject.ext.androidxDeps.material
+    api rootProject.ext.androisxLibs
 
     // Navigation
-    api rootProject.ext.androidxDeps.navigationfragment
-    api rootProject.ext.androidxDeps.navigationui
+    api rootProject.ext.navigationlibs
 
     //workmanager
-    api rootProject.ext.androidxDeps.work
+    api rootProject.ext.work.work
 
     //viewmodel livedata
-    api rootProject.ext.lifecycle.livedata
-    api rootProject.ext.lifecycle.viewmodel
+    api rootProject.ext.lifecycleLibs
 
     // Hilt
     api rootProject.ext.hilt.hilt
@@ -74,12 +70,10 @@ dependencies {
     debugApi rootProject.ext.leakcanary.leakcanary
 
     // Coroutines
-    api rootProject.ext.coroutines.coroutinescore
-    api rootProject.ext.coroutines.coroutinesandroid
+    api rootProject.ext.coroutineslibs
 
     //SmartRefreshLayout
-    api  rootProject.ext.refresh.refreshlayout      //核心必须依赖
-    api  rootProject.ext.refresh.refreshheader   //经典刷新头
+    api  rootProject.ext.refreshlibs
 
     api project(path: ':resmodule')
 }
