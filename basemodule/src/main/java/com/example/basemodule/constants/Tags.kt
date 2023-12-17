@@ -23,5 +23,10 @@ interface Tags {
          * Webview日志
          */
         const val WEBVIEW = WAN_ANDROID + "webview"
+
+        /**
+         * 网络请求监控日志
+         */
+        const val HTTP = WAN_ANDROID + "http"
     }
 }

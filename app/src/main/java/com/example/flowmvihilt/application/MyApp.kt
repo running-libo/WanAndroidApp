@@ -1,9 +1,5 @@
 package com.example.flowmvihilt.application
 
-import android.app.ActivityManager
-import android.content.Context
-import android.os.Process
-import android.text.TextUtils
 import com.example.basemodule.application.BaseApplication
 import com.example.basemodule.util.TaskDispatcher
 import dagger.hilt.android.HiltAndroidApp

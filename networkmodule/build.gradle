@@ -41,7 +41,6 @@ dependencies {
     api rootProject.ext.squareup.moshi
     api rootProject.ext.squareup.retrofit
     api rootProject.ext.squareup.convertergson
-//    api 'com.squareup.okhttp3:logging-interceptor:5.0.0-alpha.2'
 
     // Hilt
     api rootProject.ext.hilt.hilt
