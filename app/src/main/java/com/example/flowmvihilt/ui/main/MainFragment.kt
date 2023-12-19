@@ -14,6 +14,7 @@ import com.example.basemodule.basemvi.LoadUiIntent
 import com.example.basemodule.entity.BannerData
 import com.example.basemodule.entity.DataX
 import com.example.flowmvihilt.databinding.FragmentMainBinding
+import com.example.flowmvihilt.searchengine.SearchActivity
 import com.example.flowmvihilt.webview.WebViewActivity
 import com.example.flowmvihilt.webview.WebViewActivity.Companion.gotoWebView
 import com.scwang.smart.refresh.layout.api.RefreshLayout
@@ -47,7 +48,7 @@ class MainFragment: BaseBindingFragment<FragmentMainBinding>(
         setRefreshLoadMore()
 
         binding.ivGotoSearch.setOnClickListener {
-
+            startActivity(Intent(activity, SearchActivity::class.java))
         }
     }
 

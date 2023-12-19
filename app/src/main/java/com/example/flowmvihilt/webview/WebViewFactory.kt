@@ -1,8 +1,10 @@
 package com.example.flowmvihilt.webview
 
 import android.content.Context
+import android.os.Build
 import android.webkit.WebSettings
 import android.webkit.WebView
+import androidx.lifecycle.DefaultLifecycleObserver
 
 object WebViewFactory: IWebView {
 
@@ -12,6 +14,7 @@ object WebViewFactory: IWebView {
     }
 
     class WebAppView(context: Context) : WebView(context) {
+
 
     }
 
@@ -38,6 +41,10 @@ object WebViewFactory: IWebView {
             cacheMode = WebSettings.LOAD_CACHE_ELSE_NETWORK //优先使用缓存
 
             loadsImagesAutomatically = !isLoadPicMode!! //设置无图模式
+
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.Q) {  //开启夜间模式
+                forceDark = WebSettings.FORCE_DARK_ON
+            }
 
             //设置database缓存
             databaseEnabled = true
