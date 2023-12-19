@@ -4,7 +4,6 @@ import android.content.Context
 import android.os.Build
 import android.webkit.WebSettings
 import android.webkit.WebView
-import androidx.lifecycle.DefaultLifecycleObserver
 
 object WebViewFactory: IWebView {
 
@@ -14,7 +13,6 @@ object WebViewFactory: IWebView {
     }
 
     class WebAppView(context: Context) : WebView(context) {
-
 
     }
 

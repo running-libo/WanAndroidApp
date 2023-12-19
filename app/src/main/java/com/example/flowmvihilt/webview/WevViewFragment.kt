@@ -80,16 +80,4 @@ class WevViewFragment: BaseBindingFragment<FragmentWebviewBinding>({
         }
     }
 
-    /**
-     * 避免webview内存泄漏
-     */
-    override fun onDestroy() {
-//        binding?.webview?.let {
-//            it.loadDataWithBaseURL(null, "", "text/html", "utf-8", null)
-//            it.clearHistory()
-//            (it.parent as ViewGroup).removeView(it)
-//            it.destroy()
-//        }
-        super.onDestroy()
-    }
 }

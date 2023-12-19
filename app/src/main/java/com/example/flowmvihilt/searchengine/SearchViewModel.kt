@@ -13,6 +13,7 @@ class SearchViewModel: ViewModel() {
             add(SearchEnginBean("YouTube", 0, "https://www.youtube.com/results?q=%s"))
             add(SearchEnginBean("Bing", 0, "https://www.bing.com/search?q=%s"))
             add(SearchEnginBean("百度", 0, "https://www.baidu.com/s?wd=%s"))
+            add(SearchEnginBean("抖音", 0, "https://www.douyin.com/search/%s?"))
         }
     }
 
