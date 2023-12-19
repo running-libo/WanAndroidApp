@@ -54,7 +54,6 @@ class WevViewFragment: BaseBindingFragment<FragmentWebviewBinding>({
 
             loadsImagesAutomatically = !isLoadPicMode!! //设置无图模式
         }
-
     }
 
     private fun initWebView() {

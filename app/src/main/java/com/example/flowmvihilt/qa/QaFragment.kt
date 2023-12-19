@@ -9,7 +9,9 @@ import com.example.basemodule.basemvi.BaseAdapter
 import com.example.basemodule.basemvi.BaseBindingFragment
 import com.example.basemodule.basemvi.LoadUiIntent
 import com.example.basemodule.entity.DataBean
+import com.example.basemodule.entity.DataX
 import com.example.flowmvihilt.databinding.FragmentQaBinding
+import com.example.flowmvihilt.webview.WebViewActivity.Companion.gotoWebView
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.flow.map
 import kotlinx.coroutines.launch
@@ -34,9 +36,10 @@ class QaFragment: BaseBindingFragment<FragmentQaBinding>(
 
         qaAdapter.setOnClickListener(object: BaseAdapter.OnItemClickListener {
             override fun <E> onItemClick(data: E) {
-                findNavController().navigate(com.example.resmodule.R.id.navigation_webview, Bundle().apply {
-                    putString("url", (data as DataBean).link)
-                })
+                activity?.gotoWebView((data as DataBean).link)
+//                findNavController().navigate(com.example.resmodule.R.id.navigation_webview, Bundle().apply {
+//                    putString("url", (data as DataBean).link)
+//                })
             }
         })
     }

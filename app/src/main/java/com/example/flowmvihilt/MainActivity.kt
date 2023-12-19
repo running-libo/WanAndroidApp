@@ -2,7 +2,6 @@ package com.example.flowmvihilt
 
 import android.os.Bundle
 import android.widget.Toast
-import android.widget.ViewFlipper
 import androidx.appcompat.app.AppCompatActivity
 import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.fragment.findNavController

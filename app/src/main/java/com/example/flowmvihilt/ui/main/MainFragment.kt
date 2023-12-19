@@ -15,6 +15,7 @@ import com.example.basemodule.entity.BannerData
 import com.example.basemodule.entity.DataX
 import com.example.flowmvihilt.databinding.FragmentMainBinding
 import com.example.flowmvihilt.webview.WebViewActivity
+import com.example.flowmvihilt.webview.WebViewActivity.Companion.gotoWebView
 import com.scwang.smart.refresh.layout.api.RefreshLayout
 import com.scwang.smart.refresh.layout.listener.OnRefreshLoadMoreListener
 import dagger.hilt.android.AndroidEntryPoint
@@ -46,7 +47,7 @@ class MainFragment: BaseBindingFragment<FragmentMainBinding>(
         setRefreshLoadMore()
 
         binding.ivGotoSearch.setOnClickListener {
-            startActivity(Intent(activity, WebViewActivity::class.java))
+
         }
     }
 
@@ -55,16 +56,18 @@ class MainFragment: BaseBindingFragment<FragmentMainBinding>(
         articleAdapter.setOnClickListener(object: BaseAdapter.OnItemClickListener {
 
             override fun <E> onItemClick(data: E) {
-                findNavController().navigate(com.example.resmodule.R.id.navigation_webview, Bundle().apply {
-                    putString("url", (data as DataX).link)
-                })
+                activity?.gotoWebView((data as DataX).link)
+//                findNavController().navigate(com.example.resmodule.R.id.navigation_webview, Bundle().apply {
+//                    putString("url", (data as DataX).link)
+//                })
             }
         })
         bannerAdapter.setOnClickListener(object: BaseAdapter.OnItemClickListener {
             override fun <E> onItemClick(data: E) {
-                findNavController().navigate(com.example.resmodule.R.id.navigation_webview, Bundle().apply {
-                    putString("url", (data as BannerData).url)
-                })
+                activity?.gotoWebView((data as BannerData).url)
+//                findNavController().navigate(com.example.resmodule.R.id.navigation_webview, Bundle().apply {
+//                    putString("url", (data as BannerData).url)
+//                })
             }
         })
     }
