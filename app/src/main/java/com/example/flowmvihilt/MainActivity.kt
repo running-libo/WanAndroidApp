@@ -10,12 +10,11 @@ import com.example.basemodule.util.ActivityManager.exitApp
 import com.example.basemodule.util.ActivityManager.finishAll
 import com.example.basemodule.util.GrayManager
 import com.example.flowmvihilt.databinding.ActivityMainBinding
-import com.google.android.material.bottomnavigation.BottomNavigationView
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
 class MainActivity : AppCompatActivity() {
-//    private lateinit var binding: ActivityMainBinding
+    private lateinit var binding: ActivityMainBinding
     /** 连续按返回键退出时间  */
     private val EXIT_TIME = 2000
     /** 上次点击返回键时间  */
@@ -23,8 +22,8 @@ class MainActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-//        binding = ActivityMainBinding.inflate(layoutInflater)
-        setContentView(R.layout.activity_main)
+        binding = ActivityMainBinding.inflate(layoutInflater)
+        setContentView(binding.root)
 
         initNavigationView()
         isGrayMode()
@@ -41,7 +40,7 @@ class MainActivity : AppCompatActivity() {
     private fun initNavigationView() {
         //将Navigation与BNV关联
         val navHostFragment = supportFragmentManager.findFragmentById(R.id.nav_host_fragment) as NavHostFragment
-        findViewById<BottomNavigationView>(R.id.nav_view).setupWithNavController(navHostFragment.findNavController())
+        binding.navView.setupWithNavController(navHostFragment.findNavController())
     }
 
     /**
