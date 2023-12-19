@@ -1,5 +1,6 @@
 package com.example.flowmvihilt.ui.main
 
+import android.content.Intent
 import android.os.Bundle
 import android.view.View
 import androidx.fragment.app.viewModels
@@ -13,6 +14,7 @@ import com.example.basemodule.basemvi.LoadUiIntent
 import com.example.basemodule.entity.BannerData
 import com.example.basemodule.entity.DataX
 import com.example.flowmvihilt.databinding.FragmentMainBinding
+import com.example.flowmvihilt.webview.WebViewActivity
 import com.scwang.smart.refresh.layout.api.RefreshLayout
 import com.scwang.smart.refresh.layout.listener.OnRefreshLoadMoreListener
 import dagger.hilt.android.AndroidEntryPoint
@@ -42,6 +44,10 @@ class MainFragment: BaseBindingFragment<FragmentMainBinding>(
 
         initAdapter()
         setRefreshLoadMore()
+
+        binding.ivGotoSearch.setOnClickListener {
+            startActivity(Intent(activity, WebViewActivity::class.java))
+        }
     }
 
     private fun initAdapter() {

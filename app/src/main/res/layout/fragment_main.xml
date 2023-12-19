@@ -32,7 +32,36 @@
 
                     <androidx.appcompat.widget.Toolbar
                         android:layout_width="match_parent"
-                        android:layout_height="45dp">
+                        android:layout_height="45dp"
+                        android:overScrollMode="always">
+
+                        <androidx.constraintlayout.widget.ConstraintLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:background="@color/theme_color">
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="玩Android"
+                                app:layout_constraintStart_toStartOf="parent"
+                                app:layout_constraintTop_toTopOf="parent"
+                                app:layout_constraintBottom_toBottomOf="parent"
+                                android:layout_marginStart="10dp"
+                                android:textStyle="bold"
+                                android:textSize="16sp"
+                                android:textColor="@color/white"/>
+
+                            <ImageView
+                                android:id="@+id/iv_goto_search"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:src="@mipmap/ic_search"
+                                android:padding="12dp"
+                                app:layout_constraintEnd_toEndOf="parent"
+                                app:layout_constraintTop_toTopOf="parent"
+                                app:layout_constraintBottom_toBottomOf="parent"/>
+                        </androidx.constraintlayout.widget.ConstraintLayout>
                     </androidx.appcompat.widget.Toolbar>
                 </com.google.android.material.appbar.CollapsingToolbarLayout>
 

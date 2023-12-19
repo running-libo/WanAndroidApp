@@ -50,6 +50,9 @@ android {
 dependencies {
     // Hilt
     api rootProject.ext.hilt.hilt
+    implementation 'androidx.appcompat:appcompat:1.6.1'
+    implementation 'com.google.android.material:material:1.11.0'
+    implementation 'androidx.constraintlayout:constraintlayout:2.1.4'
     kapt rootProject.ext.hilt.compiler
 
     implementation project(path: ':networkmodule')
