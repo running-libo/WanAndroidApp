@@ -16,6 +16,8 @@
         android:roundIcon="@mipmap/ic_launcher"
         android:supportsRtl="true"
         android:theme="@style/Theme.AppCompat.Light.NoActionBar"
+        android:hardwareAccelerated="true"
+        android:largeHeap="true"
         android:usesCleartextTraffic="true"
         tools:targetApi="31" >
 

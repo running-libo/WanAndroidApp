@@ -11,6 +11,11 @@
         android:title="@string/q_a" />
 
     <item
+        android:id="@+id/navigation_gongzhonghao"
+        android:icon="@mipmap/ic_gongzhonghao"
+        android:title="@string/gongzhonghao" />
+
+    <item
         android:id="@+id/navigation_system"
         android:icon="@mipmap/ic_system_pressed"
         android:title="@string/system" />
