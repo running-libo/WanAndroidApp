@@ -1,6 +1,7 @@
 package com.example.flowmvihilt.domain.repository
 
 import com.example.basemodule.entity.BaseData
+import com.example.basemodule.entity.WxArticalList
 import com.example.flowmvihilt.domain.dispatchers.CoroutinesDispatchersProvider
 import com.example.basemodule.entity.WxArticalResponse
 import com.example.flowmvihilt.data.remote.IWxArticalService
@@ -17,6 +18,12 @@ class WxArticalRepositoryImpl @Inject constructor(
     override suspend fun getData(): BaseData<List<WxArticalResponse>> {
         return withContext(dispatchersProvider.io) {
             apiService.getWxArticalData()
+        }
+    }
+
+    override suspend fun getDataList(id: Int, page: Int): BaseData<WxArticalList> {
+        return withContext(dispatchersProvider.io) {
+            apiService.getWxArticalDataList(id, page)
         }
     }
 

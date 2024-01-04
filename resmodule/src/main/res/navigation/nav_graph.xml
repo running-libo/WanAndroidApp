@@ -16,7 +16,7 @@
         android:name="com.example.flowmvihilt.qa.QaFragment" />
     <fragment
         android:id="@+id/navigation_gongzhonghao"
-        android:name="com.example.flowmvihilt.gongzhonghao.GongzhongFragment"/>
+        android:name="com.example.flowmvihilt.gongzhonghao.WxArticalFragment"/>
     <fragment
         android:id="@+id/navigation_system"
         android:name="com.example.flowmvihilt.system.SystemFragment"/>

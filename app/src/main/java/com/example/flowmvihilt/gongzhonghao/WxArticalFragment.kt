@@ -24,7 +24,7 @@ class WxArticalFragment : BaseBindingFragment<FragmentGongzhongBinding>({
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        viewModel.sendUiIntent(WxArticalIntent.getDatas(0))
+        viewModel.sendUiIntent(WxArticalIntent.gettitles(0))
         observe()
 
     }
@@ -32,7 +32,11 @@ class WxArticalFragment : BaseBindingFragment<FragmentGongzhongBinding>({
     fun init(datas: List<WxArticalResponse>) {
         var strArray = ArrayList<String>()
         datas.forEach {
-            fragments.add(WxArticalPageFragment())
+            fragments.add(WxArticalPageFragment().apply {
+                arguments = Bundle().apply {
+                    putInt("id", it.id)
+                }
+            })
             binding.tablayout.addTab(binding.tablayout.newTab().setText(it.name))
             strArray.add(it.name)
         }

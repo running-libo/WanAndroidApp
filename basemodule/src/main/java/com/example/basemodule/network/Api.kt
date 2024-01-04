@@ -40,6 +40,11 @@ interface Api {
          * 微信公众号标题
          */
         const val WX_ARTICAL = "wxarticle/chapters/json"
+
+        /**
+         * 微信公众号列表数据
+         */
+        const val WX_ARTICAL_LIST = "wxarticle/list/{id}/{page}/json"
     }
 
 }

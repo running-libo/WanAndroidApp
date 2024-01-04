@@ -14,13 +14,24 @@ class WxArticalViewModel @Inject constructor(val respository: WxArticalRepositor
 
     override fun handleIntent(intent: IUiIntent) {
         when(intent) {
-            is WxArticalIntent.getDatas -> {
+            is WxArticalIntent.gettitles -> {
                 requestDataWithFlow(true,
                     request = { respository.getData()},
                     successCallBack = { data ->
                         sendUiState {
                             copy(
                                 detailUiState = DetailUiState.SUCCESS(data)
+                            )
+                        }
+                    })
+            }
+            is WxArticalIntent.getDataList -> {
+                requestDataWithFlow(true,
+                    request = { respository.getDataList(intent.id, intent.page)},
+                    successCallBack = { data ->
+                        sendUiState {
+                            copy(
+                                detailUiState = DetailUiState.LIST_SUCCESS(data.datas)
                             )
                         }
                     })
