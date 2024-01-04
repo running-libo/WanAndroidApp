@@ -5,8 +5,6 @@ import android.os.Bundle
 import android.view.View
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.lifecycleScope
-import androidx.navigation.fragment.findNavController
-import androidx.recyclerview.widget.RecyclerView
 import androidx.viewpager2.widget.ViewPager2
 import com.example.basemodule.basemvi.BaseAdapter
 import com.example.basemodule.basemvi.BaseBindingFragment
@@ -15,7 +13,6 @@ import com.example.basemodule.entity.BannerData
 import com.example.basemodule.entity.DataX
 import com.example.flowmvihilt.databinding.FragmentMainBinding
 import com.example.flowmvihilt.searchengine.SearchActivity
-import com.example.flowmvihilt.webview.WebViewActivity
 import com.example.flowmvihilt.webview.WebViewActivity.Companion.gotoWebView
 import com.scwang.smart.refresh.layout.api.RefreshLayout
 import com.scwang.smart.refresh.layout.listener.OnRefreshLoadMoreListener
@@ -58,17 +55,11 @@ class MainFragment: BaseBindingFragment<FragmentMainBinding>(
 
             override fun <E> onItemClick(data: E) {
                 activity?.gotoWebView((data as DataX).link)
-//                findNavController().navigate(com.example.resmodule.R.id.navigation_webview, Bundle().apply {
-//                    putString("url", (data as DataX).link)
-//                })
             }
         })
         bannerAdapter.setOnClickListener(object: BaseAdapter.OnItemClickListener {
             override fun <E> onItemClick(data: E) {
                 activity?.gotoWebView((data as BannerData).url)
-//                findNavController().navigate(com.example.resmodule.R.id.navigation_webview, Bundle().apply {
-//                    putString("url", (data as BannerData).url)
-//                })
             }
         })
     }
@@ -132,10 +123,6 @@ class MainFragment: BaseBindingFragment<FragmentMainBinding>(
         with(binding.viewpager) {
             orientation = ViewPager2.ORIENTATION_HORIZONTAL
             offscreenPageLimit = 1
-            var recyclerView = getChildAt(0) as RecyclerView
-            var padding = 80
-            recyclerView.setPadding(padding, 0, padding, 0)  //设置左右页面露出来的宽度及item与item之间的宽度
-            recyclerView.clipToPadding = false
             bannerAdapter.setList(datas)
             adapter = bannerAdapter
         }

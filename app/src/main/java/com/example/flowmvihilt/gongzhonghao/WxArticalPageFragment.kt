@@ -9,6 +9,7 @@ import com.example.basemodule.basemvi.BaseAdapter
 import com.example.basemodule.basemvi.BaseBindingFragment
 import com.example.basemodule.entity.DataX
 import com.example.flowmvihilt.databinding.FragmentGongzhongPageBinding
+import com.example.flowmvihilt.ui.main.ArticleAdapter
 import com.example.flowmvihilt.webview.WebViewActivity.Companion.gotoWebView
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.flow.map
@@ -22,7 +23,7 @@ class WxArticalPageFragment: BaseBindingFragment<FragmentGongzhongPageBinding>({
 
     private val viewModel by viewModels<WxArticalViewModel>()
     @Inject
-    lateinit var adapter:WxArticleAdapter
+    lateinit var adapter:ArticleAdapter
 
     companion object {
         val recyclerViewPool = RecyclerView.RecycledViewPool()

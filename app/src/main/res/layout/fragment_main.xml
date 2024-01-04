@@ -28,9 +28,13 @@
                     <androidx.viewpager2.widget.ViewPager2
                         android:id="@+id/viewpager"
                         android:layout_width="match_parent"
-                        android:layout_height="180dp" />
+                        android:layout_height="200dp"
+                        android:layout_marginTop="45dp"/>
 
                     <androidx.appcompat.widget.Toolbar
+                        android:id="@+id/toolbar"
+                        app:contentInsetStart="0dp"
+                        app:contentInsetEnd="0dp"
                         android:layout_width="match_parent"
                         android:layout_height="45dp"
                         android:overScrollMode="always">
@@ -54,10 +58,11 @@
 
                             <ImageView
                                 android:id="@+id/iv_goto_search"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
+                                android:layout_width="48dp"
+                                android:layout_height="48dp"
                                 android:src="@mipmap/ic_search"
-                                android:padding="12dp"
+                                android:padding="15dp"
+                                android:layout_marginEnd="5dp"
                                 app:layout_constraintEnd_toEndOf="parent"
                                 app:layout_constraintTop_toTopOf="parent"
                                 app:layout_constraintBottom_toBottomOf="parent"/>
