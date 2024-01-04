@@ -8,6 +8,8 @@ import com.example.flowmvihilt.domain.repository.QaRepository
 import com.example.flowmvihilt.domain.repository.QaRepositoryImpl
 import com.example.flowmvihilt.domain.repository.SysRepository
 import com.example.flowmvihilt.domain.repository.SysRepositoryImpl
+import com.example.flowmvihilt.domain.repository.WxArticalRepository
+import com.example.flowmvihilt.domain.repository.WxArticalRepositoryImpl
 import dagger.Binds
 import dagger.Module
 import dagger.hilt.InstallIn
@@ -28,5 +30,8 @@ interface DomainModule {
 
     @Binds
     fun provideQaRepository(qaRepositoryImpl: QaRepositoryImpl): QaRepository
+
+    @Binds
+    fun provideWxRepository(wxArticalRepository: WxArticalRepositoryImpl): WxArticalRepository
 
 }

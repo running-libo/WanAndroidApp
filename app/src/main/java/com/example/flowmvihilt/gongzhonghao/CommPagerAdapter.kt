@@ -10,7 +10,7 @@ import java.util.*
  * create by libo
  * description 公共viewPageradapter
  */
-class CommPagerAdapter(fm: FragmentManager?, private val items: ArrayList<out Fragment>, private val mTitles: Array<String>) : FragmentStatePagerAdapter(fm!!) {
+class CommPagerAdapter(fm: FragmentManager?, private val items: ArrayList<out Fragment>, private val mTitles: List<String>) : FragmentStatePagerAdapter(fm!!) {
     override fun getCount(): Int {
         return if (items.size == 0) 0 else items.size
     }

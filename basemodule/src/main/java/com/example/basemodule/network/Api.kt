@@ -35,6 +35,11 @@ interface Api {
          * 体系
          */
         const val SYSTEM = "tree/json"
+
+        /**
+         * 微信公众号标题
+         */
+        const val WX_ARTICAL = "wxarticle/chapters/json"
     }
 
 }

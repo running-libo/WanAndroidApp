@@ -1,6 +1,7 @@
 package com.example.flowmvihilt.di.modules
 
 import com.example.flowmvihilt.data.remote.ISystemService
+import com.example.flowmvihilt.data.remote.IWxArticalService
 import com.example.flowmvihilt.data.remote.MainApiService
 import com.example.flowmvihilt.data.remote.QaService
 import dagger.Module
@@ -29,6 +30,11 @@ object NetworkApiDI {
     @Provides
     fun qaApi(retrofit: Retrofit): QaService {
         return QaService(retrofit)
+    }
+
+    @Provides
+    fun wxApi(retrofit: Retrofit): IWxArticalService {
+        return IWxArticalService(retrofit)
     }
 
 }

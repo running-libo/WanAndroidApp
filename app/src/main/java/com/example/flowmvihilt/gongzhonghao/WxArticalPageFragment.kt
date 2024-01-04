@@ -5,7 +5,7 @@ import android.view.View
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.RecyclerView
 
-class GongzhonghaoPageFragment: Fragment() {
+class WxArticalPageFragment: Fragment() {
 
     companion object {
         val recyclerViewPool = RecyclerView.RecycledViewPool()
