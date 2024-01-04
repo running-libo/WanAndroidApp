@@ -13,7 +13,7 @@
         app:tabIndicatorColor="#FF9F00"
         app:tabSelectedTextColor="@color/white"
         app:layout_constraintTop_toTopOf="parent"
-        app:tabTextColor="#CCCCCC"
+        app:tabTextColor="#AAFFFFFF"
         app:tabMode="scrollable"
         android:background="@color/theme_color"/>
 

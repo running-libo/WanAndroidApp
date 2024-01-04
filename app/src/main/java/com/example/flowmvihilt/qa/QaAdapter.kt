@@ -1,5 +1,7 @@
 package com.example.flowmvihilt.qa
 
+import android.os.Build
+import android.text.Html
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
@@ -7,6 +9,7 @@ import com.example.basemodule.basemvi.BaseAdapter
 import com.example.basemodule.entity.DataBean
 import com.example.flowmvihilt.databinding.ItemQuestionBinding
 import javax.inject.Inject
+
 
 class QaAdapter @Inject constructor(): BaseAdapter<QaAdapter.QaViewHolder, DataBean>() {
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): QaViewHolder {
@@ -31,8 +34,15 @@ class QaAdapter @Inject constructor(): BaseAdapter<QaAdapter.QaViewHolder, DataB
                 binding.tvAuth.text = author
                 binding.tvTitle.text = title
                 binding.tvDate.text = niceDate
-                binding.tvContent.text = desc
                 binding.tvTag.text = chapterName
+
+                // 设置 HTML 富文本内容到 TextView
+                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
+                    binding.tvContent.text = Html.fromHtml(desc, Html.FROM_HTML_MODE_LEGACY)
+                } else {
+                    @Suppress("deprecation") val spanned = Html.fromHtml(desc)
+                    binding.tvContent.text = spanned
+                }
             }
         }
     }

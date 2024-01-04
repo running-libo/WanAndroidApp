@@ -1,7 +1,10 @@
 package com.example.flowmvihilt
 
+import android.os.Build
 import android.os.Bundle
+import android.view.WindowManager
 import android.widget.Toast
+import androidx.annotation.RequiresApi
 import androidx.appcompat.app.AppCompatActivity
 import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.fragment.findNavController
@@ -11,6 +14,7 @@ import com.example.basemodule.util.ActivityManager.finishAll
 import com.example.basemodule.util.GrayManager
 import com.example.flowmvihilt.databinding.ActivityMainBinding
 import dagger.hilt.android.AndroidEntryPoint
+
 
 @AndroidEntryPoint
 class MainActivity : AppCompatActivity() {
@@ -25,6 +29,7 @@ class MainActivity : AppCompatActivity() {
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
+        setStatusBarColor(resources.getColor(com.example.resmodule.R.color.theme_color));
         initNavigationView()
         isGrayMode()
     }
@@ -55,6 +60,13 @@ class MainActivity : AppCompatActivity() {
             exitApp()
             super.onBackPressed()
         }
+    }
+
+    @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
+    private fun setStatusBarColor(color: Int) {
+        val window = window
+        window.addFlags(WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS)
+        window.statusBarColor = color
     }
 
 }
